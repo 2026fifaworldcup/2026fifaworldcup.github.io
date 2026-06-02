@@ -47,7 +47,30 @@ a { color: inherit; }
   margin-top: .35rem;
 }
 .content-page .cards,
-.content-page .groups-section { margin-top: 1.25rem; }
+.content-page .groups-section { margin-top: var(--section-gap); }
+.content-page > .page-nav {
+  margin: 0 0 var(--section-gap);
+}
+.page-nav .language-switch {
+  margin: 0;
+}
+.language-switch.compact {
+  vertical-align: middle;
+}
+.page-hero-card {
+  position: static;
+  max-height: none;
+  overflow: visible;
+  padding: var(--card-pad);
+}
+.page-ad {
+  min-height: 120px;
+  margin: var(--section-gap) 0;
+}
+.no-scroll {
+  max-height: none;
+  overflow: visible;
+}
 
 .hero {
   width: min(100% - 2rem, var(--page-max));
