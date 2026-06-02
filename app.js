@@ -37,10 +37,18 @@ const copy = {
     groupsTitle: 'Group standings',
     groupsDesc: 'Compare each group by rank, points, W-D-L record, goals for, goals against, goal difference, and recent form.',
     popularTitle: 'Popular teams',
+    countryGuidesTitle: 'Country guides',
+    guideSubGroup: 'Group path + squad',
+    guideSubHost: 'Host path + squad',
+    koreaGuide: 'Korea 2026 guide',
+    usaGuide: 'USA 2026 guide',
+    brazilGuide: 'Brazil 2026 guide',
+    argentinaGuide: 'Argentina 2026 guide',
+    japanGuide: 'Japan 2026 guide',
     footerNote: 'Unofficial 2026 FIFA World Cup information page. No FIFA or association official logos are used.',
     selectKicker: 'Select a team',
     tapFlag: 'Tap a flag',
-    panelDesc: 'Select a country to see its group slot, current table position, squad list, and tournament path.',
+    panelDesc: 'Tap a country to open its dedicated World Cup 2026 team page with group slot, squad, and tournament path.',
     groupSlot: 'Group slot',
     updated: 'Updated',
     finalSquad: 'Final squad',
@@ -84,10 +92,18 @@ const copy = {
     groupsTitle: '조별 순위표',
     groupsDesc: '각 조의 순위, 승점, 승-무-패, 득점, 실점, 득실차, 최근 흐름과 진출권을 비교할 수 있습니다.',
     popularTitle: '인기 국가',
+    countryGuidesTitle: '국가별 가이드',
+    guideSubGroup: '조별 경로 + 선수명단',
+    guideSubHost: '개최국 경로 + 선수명단',
+    koreaGuide: '대한민국 2026 가이드',
+    usaGuide: '미국 2026 가이드',
+    brazilGuide: '브라질 2026 가이드',
+    argentinaGuide: '아르헨티나 2026 가이드',
+    japanGuide: '일본 2026 가이드',
     footerNote: '2026 FIFA 월드컵 정보를 빠르게 확인하기 위한 비공식 페이지입니다. FIFA/각 협회 공식 로고는 사용하지 않습니다.',
     selectKicker: '국가 선택',
     tapFlag: '국기를 눌러보세요',
-    panelDesc: '국가를 선택하면 조 배정, 현재 순위, 선수명단, 토너먼트 경로를 함께 확인할 수 있습니다.',
+    panelDesc: '국가를 누르면 조 배정, 선수명단, 토너먼트 경로를 정리한 전용 국가 페이지로 이동합니다.',
     groupSlot: '조 배정',
     updated: '업데이트',
     finalSquad: '최종 선수명단',
@@ -141,6 +157,35 @@ function flagMarkup(code, extraClass = '') {
   return `<span class="flag ${extraClass}" aria-hidden="true">${team.flag}</span>`;
 }
 
+const teamPageSlugs = {
+  KOR: 'korea',
+  USA: 'usa',
+  BIH: 'bosnia-herzegovina',
+  COD: 'dr-congo',
+  CIV: 'ivory-coast',
+};
+
+function slugifyTeamName(name) {
+  return String(name || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, 'and')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase();
+}
+
+function teamPagePath(code) {
+  const team = getTeam(code);
+  if (!team) return '#';
+  return `./teams/${teamPageSlugs[code] || slugifyTeamName(team.name)}.html`;
+}
+
+function openTeamPage(code) {
+  const href = teamPagePath(code);
+  if (href && href !== '#') window.location.href = href;
+}
+
 function slotLabel(slot) {
   if (currentLang === 'ko') {
     return slot
@@ -185,8 +230,8 @@ function renderTeamButton(code, match) {
     ? `<span class="slot-name">${slotLabel(code)}</span><span class="seed">${t('tbd')}</span>`
     : `<span>${flagMarkup(code)}<strong>${teamName(team)}</strong></span><span class="seed">${teamStatus(team)}</span>`;
   if (!isSlot) {
-    button.setAttribute('aria-label', `View ${teamName(team)} squad`);
-    button.addEventListener('click', () => selectTeam(code));
+    button.setAttribute('aria-label', `Open ${teamName(team)} World Cup 2026 page`);
+    button.addEventListener('click', () => openTeamPage(code));
   }
   return button;
 }
@@ -303,7 +348,7 @@ function renderGroups() {
       </div>
     `;
     card.querySelectorAll('.standings-row[data-team]').forEach((button) => {
-      button.addEventListener('click', () => selectTeam(button.dataset.team));
+      button.addEventListener('click', () => openTeamPage(button.dataset.team));
     });
     groupsEl.appendChild(card);
   });
@@ -398,7 +443,7 @@ function selectTeam(code) {
     </div>
     <div class="squad-header"><strong>${t('finalSquad')}</strong><span>${team.squad.length} ${t('players')}</span></div>
     <ul class="squad-list">${renderSquad(team)}</ul>
-    ${team.squadUrl ? `<a class="squad-link" href="${team.squadUrl}" target="_blank" rel="noopener">${t('openTeam')}</a>` : ''}
+    <a class="squad-link" href="${teamPagePath(code)}">${t('openTeam')}</a>
   `;
   renderBracket();
   renderGroups();
@@ -409,11 +454,10 @@ function renderCards() {
   cardsEl.innerHTML = '';
   popular.forEach((code) => {
     const team = getTeam(code);
-    const button = document.createElement('button');
-    button.type = 'button';
+    const button = document.createElement('a');
     button.className = 'team-card';
+    button.href = teamPagePath(code);
     button.innerHTML = `${flagMarkup(code)}<strong>${teamName(team)}</strong><small>${teamStatus(team)}</small>`;
-    button.addEventListener('click', () => selectTeam(code));
     cardsEl.appendChild(button);
   });
 }
