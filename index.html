@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#f8fafc" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6703584272721436"
       crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./styles.css?v=20260602-live-standings" />
+    <link rel="stylesheet" href="./styles.css?v=20260602-live-feed" />
   </head>
   <body>
     <header class="hero">
@@ -60,6 +60,17 @@
         </section>
       </section>
 
+      <section class="live-section" aria-label="Warm-up matches">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="warmupTitle">Warm-up watch</h2>
+            <p data-i18n="warmupDesc">Recent and upcoming international friendlies involving qualified teams, fetched from ESPN’s public scoreboard.</p>
+          </div>
+          <span id="live-updated" class="source-pill"></span>
+        </div>
+        <div id="warmups" class="warmup-grid"></div>
+      </section>
+
       <section class="groups-section" aria-label="Real groups">
         <h2 data-i18n="groupsTitle">Group standings</h2>
         <p data-i18n="groupsDesc">Live table format: rank, W-D-L, goals, points, result status, and advancement line.</p>
@@ -88,7 +99,8 @@
       <p><a href="./about.html">About</a> · <a href="./privacy.html">Privacy</a> · <a href="./contact.html">Contact</a> · <a href="./disclaimer.html">Disclaimer</a><br />© Studio Nani</p>
     </footer>
 
-    <script src="./data.js?v=20260602-live-standings"></script>
-    <script src="./app.js?v=20260602-live-standings"></script>
+    <script src="./data.js?v=20260602-live-feed"></script>
+    <script src="./live-data.js?v=20260602-live-feed"></script>
+    <script src="./app.js?v=20260602-live-feed"></script>
   </body>
 </html>

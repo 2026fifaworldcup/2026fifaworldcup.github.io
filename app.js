@@ -1,8 +1,15 @@
 const data = window.WORLD_CUP_DATA;
+const liveData = window.WORLD_CUP_LIVE_DATA || { groupMatches: [], warmups: [] };
+const liveGroupMatches = (liveData.groupMatches || []).map((match) => ({
+  ...match,
+  group: findGroupForMatch(match.home, match.away),
+})).filter((match) => match.group);
 const bracketEl = document.querySelector('#bracket');
 const panelEl = document.querySelector('#team-panel');
 const cardsEl = document.querySelector('#team-cards');
 const groupsEl = document.querySelector('#groups');
+const warmupsEl = document.querySelector('#warmups');
+const liveUpdatedEl = document.querySelector('#live-updated');
 const resetBtn = document.querySelector('#reset-view');
 const langButtons = document.querySelectorAll('.lang-btn');
 let selectedTeam = null;
@@ -17,6 +24,10 @@ const copy = {
     adSub: 'AdSense placeholder',
     statusTitle: 'Live-ready group standings + knockout path',
     statusDesc: 'Built for quick reading: rank, W-D-L, points, recent results, and official knockout slots.',
+    warmupTitle: 'Warm-up watch',
+    warmupDesc: 'Recent and upcoming international friendlies involving qualified teams, fetched from ESPN’s public scoreboard.',
+    liveUpdated: 'Live feed updated',
+    source: 'Source',
     reset: 'Reset view',
     groupsTitle: 'Group standings',
     groupsDesc: 'Live table format: rank, W-D-L, goals, points, result status, and advancement line.',
@@ -55,6 +66,10 @@ const copy = {
     adSub: 'AdSense 자리',
     statusTitle: '실시간 대응 조별 순위 + 토너먼트 경로',
     statusDesc: '순위, 승-무-패, 승점, 최근 결과, 공식 토너먼트 슬롯을 빠르게 읽는 구조입니다.',
+    warmupTitle: '예열 경기 체크',
+    warmupDesc: '본선 진출팀이 포함된 최근/예정 친선경기를 ESPN 공개 스코어보드에서 가져와 보여줍니다.',
+    liveUpdated: '실시간 데이터 갱신',
+    source: '출처',
     reset: '전체 보기',
     groupsTitle: '조별 순위표',
     groupsDesc: '실시간 반영용 표: 순위, 승-무-패, 득실, 승점, 결과 상태, 진출선을 함께 보여줍니다.',
@@ -93,6 +108,14 @@ function t(key) {
 
 function getTeam(code) {
   return data.teams[code];
+}
+
+function findGroupForMatch(home, away) {
+  return Object.entries(data.groups || {}).find(([, codes]) => codes.includes(home) && codes.includes(away))?.[0] || null;
+}
+
+function allGroupMatches() {
+  return [...(data.groupMatches || []), ...liveGroupMatches];
 }
 
 function teamName(team) {
@@ -197,7 +220,7 @@ function emptyStanding(code, group, index) {
 
 function computeGroupStandings(group, codes) {
   const rows = new Map(codes.map((code, index) => [code, emptyStanding(code, group, index)]));
-  const matches = (data.groupMatches || []).filter((match) => match.group === group && match.played && rows.has(match.home) && rows.has(match.away));
+  const matches = allGroupMatches().filter((match) => match.group === group && match.played && rows.has(match.home) && rows.has(match.away));
 
   matches.forEach((match) => {
     const home = rows.get(match.home);
@@ -274,6 +297,47 @@ function renderGroups() {
     });
     groupsEl.appendChild(card);
   });
+}
+
+function formatMatchDate(iso) {
+  if (!iso) return '';
+  return new Intl.DateTimeFormat(currentLang === 'ko' ? 'ko-KR' : 'en', {
+    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false,
+  }).format(new Date(iso));
+}
+
+function liveTeamMarkup(side) {
+  const team = getTeam(side.code);
+  const label = team ? teamName(team) : side.name;
+  const flag = team ? team.flag : '•';
+  return `<span class="warmup-team"><span class="flag">${flag}</span><strong>${label}</strong></span>`;
+}
+
+function warmupScore(event) {
+  const completed = event.status?.completed;
+  if (!completed) return currentLang === 'ko' ? '예정' : 'Upcoming';
+  return `${event.home.score} - ${event.away.score}`;
+}
+
+function renderWarmups() {
+  if (!warmupsEl) return;
+  const warmups = [...(liveData.warmups || [])]
+    .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+    .slice(0, 18);
+  if (liveUpdatedEl) {
+    liveUpdatedEl.textContent = liveData.updatedAt ? `${t('liveUpdated')}: ${formatMatchDate(liveData.updatedAt)}` : '';
+  }
+  warmupsEl.innerHTML = warmups.map((event) => `
+    <article class="warmup-card ${event.status?.completed ? 'done' : 'upcoming'}">
+      <div class="warmup-meta"><span>${formatMatchDate(event.date)}</span><span>${event.status?.description || ''}</span></div>
+      <div class="warmup-scoreline">
+        ${liveTeamMarkup(event.home)}
+        <strong>${warmupScore(event)}</strong>
+        ${liveTeamMarkup(event.away)}
+      </div>
+      <small>${[event.venue, liveData.source?.name].filter(Boolean).join(' · ')}</small>
+    </article>
+  `).join('');
 }
 
 function findTeamGroup(code) {
@@ -365,6 +429,7 @@ function applyLanguage(lang) {
     renderGroups();
   }
   renderCards();
+  renderWarmups();
 }
 
 resetBtn.addEventListener('click', () => {
