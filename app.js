@@ -19,13 +19,13 @@ const copy = {
   en: {
     eyebrow: 'World Cup 2026',
     title: 'World Cup 2026 Dashboard',
-    lead: 'Real 2026 FIFA World Cup groups, standings, match schedule, Round of 32 slots, knockout path, and country squads in one fast table-first dashboard.',
+    lead: 'Fast tables first: group standings, match results, and the official Round of 32 path when you need it.',
     adTitle: 'Ad slot',
     adSub: 'AdSense placeholder',
-    statusTitle: 'Real groups + official knockout slots',
-    statusDesc: 'Check group tables, match results, Round of 32 slots, and each country’s path through the 2026 bracket.',
-    warmupTitle: 'Warm-up watch',
-    warmupDesc: 'Recent and upcoming international friendlies involving qualified 2026 World Cup teams, shown in your browser’s local time.',
+    statusTitle: 'Start with the standings',
+    statusDesc: 'Rank, points, record, goals, and advancement line are the main view. Deeper bracket/team pages stay one click away.',
+    warmupTitle: 'Recent matches',
+    warmupDesc: 'A short match feed for form checks. Times use your local timezone.',
     localTimeNote: 'Times shown in your local timezone',
     liveUpdated: 'Live feed updated',
     source: 'Source',
@@ -36,8 +36,8 @@ const copy = {
     seoPointThree: 'Tournament path: official Round of 32 slots through the final, with team squads and country guides.',
     reset: 'View all standings',
     groupsTitle: 'Group standings',
-    groupsDesc: 'Compare each group by rank, points, W-D-L record, goals for, goals against, goal difference, and recent form.',
-    popularTitle: 'Popular teams',
+    groupsDesc: 'Rank, points, W-D-L, goals, and current advancement line by group.',
+    popularTitle: 'Quick team links',
     countryGuidesTitle: 'Country guides',
     guideSubGroup: 'Group path + squad',
     guideSubHost: 'Host path + squad',
@@ -47,16 +47,16 @@ const copy = {
     argentinaGuide: 'Argentina 2026 guide',
     japanGuide: 'Japan 2026 guide',
     footerNote: 'Unofficial 2026 FIFA World Cup information page. No FIFA or association official logos are used.',
-    selectKicker: 'Tournament dashboard',
-    tapFlag: 'Round of 32 official slots',
-    panelDesc: 'The home dashboard shows a short official-slot summary first. Use the group standings for actual team position, then open the detail page for all 16 Round of 32 match slots.',
+    selectKicker: 'More details',
+    tapFlag: 'Bracket and team pages',
+    panelDesc: 'Keep the homepage readable. Open the full Round of 32 page only when you want every slot.',
     panelStatTeams: 'Teams',
     panelStatGroups: 'Groups',
-    panelStatKnockout: 'Round of 32 matches',
-    openBracket: 'Open full Round of 32 slots',
-    bracketSummaryTitle: 'Round of 32 official slots',
-    bracketSummaryDesc: 'Teams are not fixed yet. These are the official group-position slots that decide the knockout draw after the group stage.',
-    bracketSummaryNote: 'Showing 4 key examples on the home dashboard. Open the detail page for all 16 matches.',
+    panelStatKnockout: 'R32 matches',
+    openBracket: 'Full Round of 32',
+    bracketSummaryTitle: 'Round of 32 path',
+    bracketSummaryDesc: 'Official slots are ready, but teams are not fixed until the group stage ends.',
+    bracketSummaryNote: 'Detailed slot candidates stay on the bracket page so the homepage remains readable.',
     bracketPrimarySlot: 'Slot',
     bracketOpponentSlot: 'Opponent',
     navRound: 'Round of 32',
@@ -89,13 +89,13 @@ const copy = {
   ko: {
     eyebrow: '월드컵 2026',
     title: '2026 월드컵 대시보드',
-    lead: '2026 FIFA 월드컵 실제 조편성, 순위표, 경기 일정, 32강 대진 슬롯, 토너먼트 경로, 국가별 선수명단을 한 화면에서 빠르게 확인하세요.',
+    lead: '먼저 순위표를 빠르게 보고, 필요할 때만 경기 결과와 32강 경로를 열어보세요.',
     adTitle: '광고 영역',
     adSub: 'AdSense 자리',
-    statusTitle: '실제 조편성 + 공식 토너먼트 슬롯',
-    statusDesc: '조별 순위, 경기 결과, 32강 슬롯, 국가별 토너먼트 경로를 한눈에 확인할 수 있습니다.',
-    warmupTitle: '예열 경기 체크',
-    warmupDesc: '2026 월드컵 본선 진출팀이 포함된 최근·예정 친선경기 결과를 브라우저 로컬시간 기준으로 보여줍니다.',
+    statusTitle: '순위표부터 확인하세요',
+    statusDesc: '순위, 승점, 승-무-패, 득실, 진출권을 메인으로 보여줍니다. 대진표와 팀 상세는 한 번만 더 누르면 됩니다.',
+    warmupTitle: '최근 경기',
+    warmupDesc: '팀 흐름만 빠르게 확인하는 짧은 경기 피드입니다. 시간은 현재 기기 기준입니다.',
     localTimeNote: '시간은 현재 기기의 로컬 시간 기준',
     liveUpdated: '실시간 데이터 갱신',
     source: '출처',
@@ -106,8 +106,8 @@ const copy = {
     seoPointThree: '대진 흐름: 32강부터 결승까지 공식 토너먼트 슬롯과 국가별 선수명단을 연결해 봅니다.',
     reset: '전체 순위 보기',
     groupsTitle: '조별 순위표',
-    groupsDesc: '각 조의 순위, 승점, 승-무-패, 득점, 실점, 득실차, 최근 흐름과 진출권을 비교할 수 있습니다.',
-    popularTitle: '인기 국가',
+    groupsDesc: '조별 순위, 승점, 승-무-패, 득실, 현재 진출권만 빠르게 비교합니다.',
+    popularTitle: '팀 바로가기',
     countryGuidesTitle: '국가별 가이드',
     guideSubGroup: '조별 경로 + 선수명단',
     guideSubHost: '개최국 경로 + 선수명단',
@@ -117,16 +117,16 @@ const copy = {
     argentinaGuide: '아르헨티나 2026 가이드',
     japanGuide: '일본 2026 가이드',
     footerNote: '2026 FIFA 월드컵 정보를 빠르게 확인하기 위한 비공식 페이지입니다. FIFA/각 협회 공식 로고는 사용하지 않습니다.',
-    selectKicker: '대회 대시보드',
-    tapFlag: '32강 공식 슬롯',
-    panelDesc: '홈에서는 공식 슬롯을 짧게 요약해 보여줍니다. 실제 팀 위치는 조별 순위표에서 확인하고, 전체 16경기 슬롯은 상세 페이지에서 확인하세요.',
+    selectKicker: '더 보기',
+    tapFlag: '대진표와 팀 상세',
+    panelDesc: '홈은 순위표 중심으로 가볍게 둡니다. 모든 32강 슬롯은 상세 페이지에서 확인하세요.',
     panelStatTeams: '참가국',
     panelStatGroups: '조',
-    panelStatKnockout: '32강 경기',
-    openBracket: '전체 32강 슬롯 보기',
-    bracketSummaryTitle: '32강 공식 슬롯 요약',
-    bracketSummaryDesc: '아직 실제 팀 대진은 확정 전입니다. 조별리그 결과에 따라 결정되는 공식 조 순위 슬롯을 먼저 보여줍니다.',
-    bracketSummaryNote: '홈에서는 핵심 예시 4경기만 보여줍니다. 전체 16경기는 상세 페이지에서 확인하세요.',
+    panelStatKnockout: '32강',
+    openBracket: '32강 전체 보기',
+    bracketSummaryTitle: '32강 경로',
+    bracketSummaryDesc: '공식 슬롯은 준비되어 있지만 실제 팀은 조별리그 종료 후 확정됩니다.',
+    bracketSummaryNote: '후보팀 목록은 홈에서 숨기고, 상세 페이지에서만 보여줍니다.',
     bracketPrimarySlot: '슬롯',
     bracketOpponentSlot: '상대 슬롯',
     navRound: '32강 대진표',
@@ -323,18 +323,15 @@ function renderSlotSummary(match) {
 }
 
 function renderBracketSummary() {
-  const round32 = data.rounds.find((round) => round.id === 'r32') || data.rounds[0];
-  const examples = (round32?.matches || []).slice(0, 4);
   bracketEl.innerHTML = `
-    <div class="slot-summary-head">
+    <div class="slot-summary-head compact-bracket-card">
       <div>
         <h2>${t('bracketSummaryTitle')}</h2>
         <p>${t('bracketSummaryDesc')}</p>
+        <p class="slot-summary-note">${t('bracketSummaryNote')}</p>
       </div>
       <a class="squad-link secondary" href="./round-of-32.html">${t('openBracket')}</a>
     </div>
-    <div class="slot-summary-grid">${examples.map(renderSlotSummary).join('')}</div>
-    <p class="slot-summary-note">${t('bracketSummaryNote')}</p>
   `;
 }
 
@@ -489,7 +486,7 @@ function renderWarmups() {
   if (!warmupsEl) return;
   const warmups = [...(liveData.warmups || [])]
     .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
-    .slice(0, 18);
+    .slice(0, 6);
   if (liveUpdatedEl) {
     liveUpdatedEl.textContent = liveData.updatedAt ? `${t('liveUpdated')}: ${formatMatchDate(liveData.updatedAt)} · ${viewerTimeZone()}` : '';
   }
@@ -540,7 +537,10 @@ function renderPanelEmpty() {
       <div><strong>12</strong><span>${t('panelStatGroups')}</span></div>
       <div><strong>16</strong><span>${t('panelStatKnockout')}</span></div>
     </div>
-    <a class="squad-link secondary" href="./round-of-32.html">${t('openBracket')}</a>
+    <div class="panel-actions">
+      <a class="squad-link secondary" href="#standings">${t('groupsTitle')}</a>
+      <a class="squad-link secondary" href="./round-of-32.html">${t('openBracket')}</a>
+    </div>
   `;
 }
 
@@ -567,7 +567,7 @@ function selectTeam(code) {
 }
 
 function renderCards() {
-  const popular = ['KOR', 'MEX', 'CAN', 'USA', 'BRA', 'ARG', 'FRA', 'ENG', 'JPN', 'GER', 'ESP', 'POR'];
+  const popular = ['KOR', 'MEX', 'USA', 'BRA', 'ARG', 'JPN', 'GER', 'ESP'];
   cardsEl.innerHTML = '';
   popular.forEach((code) => {
     const team = getTeam(code);

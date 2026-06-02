@@ -34,7 +34,7 @@
         }
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=20260602-home-slot-summary" />
+    <link rel="stylesheet" href="./styles.css?v=20260602-readable-home" />
   </head>
   <body>
     <header class="hero">
@@ -77,25 +77,13 @@
         <button id="reset-view" type="button" data-i18n="reset">Reset view</button>
       </section>
 
-      <section class="seo-summary" aria-label="World Cup 2026 summary">
-        <h2 data-i18n="seoTitle">2026 FIFA World Cup standings, schedule, and bracket</h2>
-        <p data-i18n="seoDesc">Use this page to check every group table, match result, upcoming fixture, Round of 32 slot, and national team squad for the 2026 FIFA World Cup. The dashboard is designed for quick search and reading before and during matchdays.</p>
-        <ul>
-          <li data-i18n="seoPointOne">Group standings: rank, points, W-D-L record, goals for, goals against, and goal difference.</li>
-          <li data-i18n="seoPointTwo">Match information: live-ready World Cup results plus pre-tournament international friendly results.</li>
-          <li data-i18n="seoPointThree">Tournament path: official Round of 32 slots through the final, with team squads and country guides.</li>
-        </ul>
+      <section id="standings" class="groups-section" aria-label="Real groups">
+        <h2 data-i18n="groupsTitle">Group standings</h2>
+        <p data-i18n="groupsDesc">Live table format: rank, W-D-L, goals, points, result status, and advancement line.</p>
+        <div id="groups" class="groups-grid"></div>
       </section>
 
-      <section class="layout">
-        <aside class="team-panel" id="team-panel" aria-live="polite"></aside>
-
-        <section class="bracket-wrap home-slot-summary" aria-label="World Cup knockout bracket">
-          <div id="bracket" class="bracket summary-bracket" data-mode="summary"></div>
-        </section>
-      </section>
-
-      <section class="live-section" aria-label="Warm-up matches">
+      <section class="live-section compact-section" aria-label="Warm-up matches">
         <div class="section-head">
           <div>
             <h2 data-i18n="warmupTitle">Warm-up watch</h2>
@@ -106,10 +94,12 @@
         <div id="warmups" class="warmup-grid"></div>
       </section>
 
-      <section class="groups-section" aria-label="Real groups">
-        <h2 data-i18n="groupsTitle">Group standings</h2>
-        <p data-i18n="groupsDesc">Live table format: rank, W-D-L, goals, points, result status, and advancement line.</p>
-        <div id="groups" class="groups-grid"></div>
+      <section class="layout more-paths">
+        <aside class="team-panel" id="team-panel" aria-live="polite"></aside>
+
+        <section class="bracket-wrap home-slot-summary" aria-label="World Cup knockout bracket">
+          <div id="bracket" class="bracket summary-bracket" data-mode="summary"></div>
+        </section>
       </section>
 
       <section class="cards" aria-label="Popular teams">
@@ -127,6 +117,16 @@
           <a class="team-card" href="./teams/japan.html"><span class="flag">🇯🇵</span><strong data-i18n="japanGuide">Japan 2026 guide</strong><small data-i18n="guideSubGroup">Group path + squad</small></a>
         </div>
       </section>
+
+      <section class="seo-summary quiet-seo" aria-label="World Cup 2026 summary">
+        <h2 data-i18n="seoTitle">2026 FIFA World Cup standings, schedule, and bracket</h2>
+        <p data-i18n="seoDesc">Use this page to check every group table, match result, upcoming fixture, Round of 32 slot, and national team squad for the 2026 FIFA World Cup. The dashboard is designed for quick search and reading before and during matchdays.</p>
+        <ul>
+          <li data-i18n="seoPointOne">Group standings: rank, points, W-D-L record, goals for, goals against, and goal difference.</li>
+          <li data-i18n="seoPointTwo">Match information: live-ready World Cup results plus pre-tournament international friendly results.</li>
+          <li data-i18n="seoPointThree">Tournament path: official Round of 32 slots through the final, with team squads and country guides.</li>
+        </ul>
+      </section>
     </main>
 
     <footer>
@@ -136,6 +136,6 @@
 
     <script src="./data.js?v=20260602-ads-time"></script>
     <script src="./live-data.js?v=20260602-ads-time"></script>
-    <script src="./app.js?v=20260602-home-slot-summary"></script>
+    <script src="./app.js?v=20260602-readable-home"></script>
   </body>
 </html>
