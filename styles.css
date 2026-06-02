@@ -276,6 +276,7 @@ button.standings-row { cursor: pointer; }
 .team-card .flag { display: block; font-size: 2.3rem; margin-bottom: .5rem; }
 .team-card strong { display: block; }
 .team-card small { color: var(--muted); }
+.tournament-stat { display: inline-flex; align-items: center; justify-content: center; width: fit-content; max-width: 100%; margin-top: .45rem; padding: .32rem .55rem; border-radius: 999px; background: #eff6ff; border: 1px solid rgba(37,99,235,.22); color: var(--blue) !important; font-weight: 900; }
 
 footer { padding: 2rem; color: var(--muted); text-align: center; }
 footer p { margin: .2rem 0; }
