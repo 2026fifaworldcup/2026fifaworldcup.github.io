@@ -25,7 +25,8 @@ const copy = {
     statusTitle: 'Real groups + official knockout slots',
     statusDesc: 'Check group tables, match results, Round of 32 slots, and each country’s path through the 2026 bracket.',
     warmupTitle: 'Warm-up watch',
-    warmupDesc: 'Recent and upcoming international friendlies involving qualified 2026 World Cup teams, fetched from ESPN’s public scoreboard.',
+    warmupDesc: 'Recent and upcoming international friendlies involving qualified 2026 World Cup teams, shown in your browser’s local time.',
+    localTimeNote: 'Times shown in your local timezone',
     liveUpdated: 'Live feed updated',
     source: 'Source',
     seoTitle: '2026 FIFA World Cup standings, schedule, and bracket',
@@ -89,7 +90,8 @@ const copy = {
     statusTitle: '실제 조편성 + 공식 토너먼트 슬롯',
     statusDesc: '조별 순위, 경기 결과, 32강 슬롯, 국가별 토너먼트 경로를 한눈에 확인할 수 있습니다.',
     warmupTitle: '예열 경기 체크',
-    warmupDesc: '2026 월드컵 본선 진출팀이 포함된 최근·예정 친선경기 결과를 ESPN 공개 스코어보드 기준으로 보여줍니다.',
+    warmupDesc: '2026 월드컵 본선 진출팀이 포함된 최근·예정 친선경기 결과를 브라우저 로컬시간 기준으로 보여줍니다.',
+    localTimeNote: '시간은 현재 기기의 로컬 시간 기준',
     liveUpdated: '실시간 데이터 갱신',
     source: '출처',
     seoTitle: '2026 FIFA 월드컵 순위와 경기 일정',
@@ -372,10 +374,14 @@ function renderGroups() {
   });
 }
 
+function viewerTimeZone() {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone || 'Local time';
+}
+
 function formatMatchDate(iso) {
   if (!iso) return '';
   return new Intl.DateTimeFormat(currentLang === 'ko' ? 'ko-KR' : 'en', {
-    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false,
+    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short',
   }).format(new Date(iso));
 }
 
@@ -398,11 +404,11 @@ function renderWarmups() {
     .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
     .slice(0, 18);
   if (liveUpdatedEl) {
-    liveUpdatedEl.textContent = liveData.updatedAt ? `${t('liveUpdated')}: ${formatMatchDate(liveData.updatedAt)}` : '';
+    liveUpdatedEl.textContent = liveData.updatedAt ? `${t('liveUpdated')}: ${formatMatchDate(liveData.updatedAt)} · ${viewerTimeZone()}` : '';
   }
   warmupsEl.innerHTML = warmups.map((event) => `
     <article class="warmup-card ${event.status?.completed ? 'done' : 'upcoming'}">
-      <div class="warmup-meta"><span>${formatMatchDate(event.date)}</span><span>${event.status?.description || ''}</span></div>
+      <div class="warmup-meta"><span title="${t('localTimeNote')}: ${viewerTimeZone()}">${formatMatchDate(event.date)}</span><span>${event.status?.description || ''}</span></div>
       <div class="warmup-scoreline">
         ${liveTeamMarkup(event.home)}
         <strong>${warmupScore(event)}</strong>

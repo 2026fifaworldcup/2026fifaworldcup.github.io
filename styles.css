@@ -316,7 +316,7 @@ button.standings-row { cursor: pointer; }
 .panel-stat-grid span { display: block; color: var(--muted); font-size: .68rem; font-weight: 900; margin-top: .25rem; }
 .squad-link.secondary { background: #eff6ff; border: 1px solid rgba(37,99,235,.22); color: var(--blue); }
 .bracket-wrap::before {
-  content: "2026 official bracket path · slots update as standings change";
+  content: "2026 official bracket path · match dates show host city; exact kickoff times convert to local time when available";
   display: block;
   color: var(--muted);
   font-size: .76rem;
@@ -324,7 +324,7 @@ button.standings-row { cursor: pointer; }
   letter-spacing: .02em;
   margin: .15rem .25rem .7rem;
 }
-body[data-lang="ko"] .bracket-wrap::before { content: "2026 공식 대진 경로 · 순위 확정 시 슬롯 자동 반영"; }
+body[data-lang="ko"] .bracket-wrap::before { content: "2026 공식 대진 경로 · 현재는 개최도시 기준 날짜, 정확한 킥오프 시간 확보 시 로컬시간 자동 변환"; }
 .match-label span:first-child { color: var(--blue); font-weight: 900; }
 .placeholder .seed { border: 1px solid var(--line); border-radius: 999px; padding: .18rem .45rem; background: var(--surface); font-weight: 900; }
 .team-card:hover { border-color: var(--blue); background: #eff6ff; transform: translateY(-1px); transition: background .16s ease, border-color .16s ease, transform .16s ease; }
