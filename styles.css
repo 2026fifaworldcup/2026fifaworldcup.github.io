@@ -46,6 +46,7 @@ a { color: inherit; }
   margin-top: .35rem;
 }
 .content-page .cards,
+.content-page .live-section,
 .content-page .groups-section { margin-top: var(--section-gap); }
 .content-page > .page-nav {
   margin: 0 0 var(--section-gap);
