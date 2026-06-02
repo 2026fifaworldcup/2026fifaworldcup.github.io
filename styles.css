@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css");
+
 :root {
   color-scheme: light;
   --bg: #f8fafc;
@@ -25,12 +27,14 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "SUIT", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
+  font-feature-settings: "tnum" 1;
+  text-rendering: optimizeLegibility;
 }
 
-button { font: inherit; }
+button, input, select, textarea { font: inherit; }
 a { color: inherit; }
 
 .content-page {
@@ -169,7 +173,7 @@ main {
 .player-main strong { display: block; font-size: .9rem; }
 .player-main small, .player-meta { display: block; color: var(--muted); font-size: .72rem; }
 .player-meta { grid-column: 2; }
-.squad-link { display: inline-flex; text-decoration: none; color: #06101f; background: var(--green); padding: .78rem 1rem; border-radius: 14px; font-weight: 900; margin-top: 1rem; }
+.squad-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; text-align: center; text-decoration: none; color: #06101f; background: var(--green); padding: .78rem 1rem; border-radius: 14px; font-weight: 900; margin-top: 1rem; }
 
 .bracket-wrap { overflow-x: auto; padding: .35rem .35rem .8rem; border: 1px solid var(--line); border-radius: 20px; background: #f8fafc; }
 .bracket-wrap::after { content: var(--scroll-hint); display: block; color: var(--muted); font-size: .78rem; margin-top: .45rem; text-align: right; }
@@ -230,6 +234,11 @@ main {
 .warmup-team:last-child strong { grid-column: 1; grid-row: 1; }
 .warmup-team strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .92rem; }
 .warmup-card small { color: var(--muted); line-height: 1.45; }
+.performance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+.performance-card { border: 1px solid var(--line); background: linear-gradient(180deg, #ffffff, #f8fbff); border-radius: 18px; padding: .95rem; display: grid; gap: .3rem; }
+.performance-card span { color: var(--muted); font-size: .78rem; font-weight: 900; }
+.performance-card strong { font-size: clamp(1.25rem, 3vw, 1.8rem); letter-spacing: -.03em; }
+.performance-card small { color: var(--muted); line-height: 1.4; }
 .groups-section h2 { margin: 0 0 .35rem; }
 .groups-section > p { margin: 0 0 1rem; color: var(--muted); }
 .groups-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: .8rem; }
@@ -270,6 +279,8 @@ button.standings-row { cursor: pointer; }
 
 footer { padding: 2rem; color: var(--muted); text-align: center; }
 footer p { margin: .2rem 0; }
+.page-bottom-cta { display: flex; justify-content: center; padding: 1rem; }
+.page-bottom-cta .squad-link { margin-top: 0; min-width: min(100%, 260px); }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
@@ -280,9 +291,9 @@ footer p { margin: .2rem 0; }
 }
 
 
-.site-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.15rem; }
+.site-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.15rem; align-items: center; }
 .site-links a, footer a { color: var(--green); text-decoration: none; font-weight: 800; }
-.site-links a { border: 1px solid var(--line); border-radius: 999px; padding: .48rem .75rem; background: rgba(255,255,255,.055); }
+.site-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; text-align: center; border: 1px solid var(--line); border-radius: 999px; padding: .48rem .75rem; background: rgba(255,255,255,.055); }
 .info-page .hero,
 .info-page main,
 .info-page footer {
