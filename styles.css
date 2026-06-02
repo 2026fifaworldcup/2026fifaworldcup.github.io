@@ -134,6 +134,19 @@ main {
 .dot.live { background: var(--green); box-shadow: 0 0 0 7px rgba(50,213,131,.14); }
 #reset-view { border: 0; border-radius: 999px; padding: .75rem 1rem; background: var(--blue); color: #ffffff; font-weight: 800; cursor: pointer; }
 
+.seo-summary {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-radius: 22px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+.seo-summary h2 { margin: 0 0 .45rem; font-size: clamp(1.2rem, 2vw, 1.55rem); }
+.seo-summary p { margin: 0; color: var(--muted); line-height: 1.7; }
+.seo-summary ul { margin: .8rem 0 0; padding-left: 1.15rem; color: var(--muted); line-height: 1.65; }
+.seo-summary li + li { margin-top: .25rem; }
+
 .layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 1.2rem; align-items: start; }
 .team-panel { position: sticky; top: 1rem; border-radius: 28px; padding: 1.4rem; max-height: calc(100vh - 2rem); overflow: auto; }
 .panel-kicker { margin: 0; color: var(--green); font-weight: 800; }

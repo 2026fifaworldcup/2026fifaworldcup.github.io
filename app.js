@@ -18,24 +18,29 @@ let currentLang = localStorage.getItem('wc-lang') || 'en';
 const copy = {
   en: {
     eyebrow: 'World Cup 2026',
-    title: 'World Cup Live Table',
-    lead: 'Check live-ready 2026 World Cup group standings, W-D-L records, results, official knockout slots, and squads in a fast table-first view.',
+    title: 'World Cup 2026 Standings',
+    lead: 'Follow the 2026 FIFA World Cup with group standings, match schedule, live scores, warm-up friendly results, knockout bracket paths, and team squads in one fast dashboard.',
     adTitle: 'Ad slot',
     adSub: 'AdSense placeholder',
-    statusTitle: 'Live-ready group standings + knockout path',
-    statusDesc: 'Built for quick reading: rank, W-D-L, points, recent results, and official knockout slots.',
+    statusTitle: 'Group standings, match results, and knockout bracket',
+    statusDesc: 'Track points, W-D-L, goal difference, match results, and the route from group stage to the knockout bracket.',
     warmupTitle: 'Warm-up watch',
-    warmupDesc: 'Recent and upcoming international friendlies involving qualified teams, fetched from ESPN’s public scoreboard.',
+    warmupDesc: 'Recent and upcoming international friendlies involving qualified 2026 World Cup teams, fetched from ESPN’s public scoreboard.',
     liveUpdated: 'Live feed updated',
     source: 'Source',
-    reset: 'Reset view',
+    seoTitle: '2026 FIFA World Cup standings, schedule, and bracket',
+    seoDesc: 'Use this page to check every group table, match result, upcoming fixture, Round of 32 slot, and national team squad for the 2026 FIFA World Cup. The dashboard is designed for quick search and reading before and during matchdays.',
+    seoPointOne: 'Group standings: rank, points, W-D-L record, goals for, goals against, and goal difference.',
+    seoPointTwo: 'Match information: live-ready World Cup results plus pre-tournament international friendly results.',
+    seoPointThree: 'Tournament path: official Round of 32 slots through the final, with team squads and country guides.',
+    reset: 'View all standings',
     groupsTitle: 'Group standings',
-    groupsDesc: 'Live table format: rank, W-D-L, goals, points, result status, and advancement line.',
+    groupsDesc: 'Compare each group by rank, points, W-D-L record, goals for, goals against, goal difference, and recent form.',
     popularTitle: 'Popular teams',
-    footerNote: 'Unofficial fan/information page. No FIFA or association official logos are used.',
+    footerNote: 'Unofficial 2026 FIFA World Cup information page. No FIFA or association official logos are used.',
     selectKicker: 'Select a team',
     tapFlag: 'Tap a flag',
-    panelDesc: 'See group slot, final squad, and match path.',
+    panelDesc: 'Select a country to see its group slot, current table position, squad list, and tournament path.',
     groupSlot: 'Group slot',
     updated: 'Updated',
     finalSquad: 'Final squad',
@@ -60,24 +65,29 @@ const copy = {
   },
   ko: {
     eyebrow: '월드컵 2026',
-    title: '월드컵 실시간 순위표',
-    lead: '2026 월드컵 조별 순위, 승-무-패, 경기 결과, 공식 토너먼트 슬롯, 선수명단을 표 중심으로 빠르게 확인하세요.',
+    title: '2026 월드컵 조별 순위·일정',
+    lead: '2026 FIFA 월드컵 조별 순위, 경기 일정, 실시간 결과, 친선경기 흐름, 토너먼트 대진표, 국가별 선수명단을 한 화면에서 빠르게 확인하세요.',
     adTitle: '광고 영역',
     adSub: 'AdSense 자리',
-    statusTitle: '실시간 대응 조별 순위 + 토너먼트 경로',
-    statusDesc: '순위, 승-무-패, 승점, 최근 결과, 공식 토너먼트 슬롯을 빠르게 읽는 구조입니다.',
+    statusTitle: '조별 순위·경기 결과·토너먼트 대진표',
+    statusDesc: '승점, 승-무-패, 득실차, 최근 경기 결과와 조별리그 이후 대진 흐름을 한눈에 확인할 수 있습니다.',
     warmupTitle: '예열 경기 체크',
-    warmupDesc: '본선 진출팀이 포함된 최근/예정 친선경기를 ESPN 공개 스코어보드에서 가져와 보여줍니다.',
+    warmupDesc: '2026 월드컵 본선 진출팀이 포함된 최근·예정 친선경기 결과를 ESPN 공개 스코어보드 기준으로 보여줍니다.',
     liveUpdated: '실시간 데이터 갱신',
     source: '출처',
-    reset: '전체 보기',
+    seoTitle: '2026 FIFA 월드컵 순위와 경기 일정',
+    seoDesc: '이 페이지에서는 2026 FIFA 월드컵 조별 순위표, 경기 일정, 실시간 스코어, 32강 대진표, 국가별 선수명단을 한 번에 확인할 수 있습니다. 경기 전에는 친선경기 결과로 각 팀의 흐름을 먼저 살펴볼 수 있습니다.',
+    seoPointOne: '조별 순위: 순위, 승점, 승-무-패, 득점, 실점, 득실차를 빠르게 비교합니다.',
+    seoPointTwo: '경기 정보: 월드컵 본선 결과와 개막 전 친선경기 결과를 함께 확인합니다.',
+    seoPointThree: '대진 흐름: 32강부터 결승까지 공식 토너먼트 슬롯과 국가별 선수명단을 연결해 봅니다.',
+    reset: '전체 순위 보기',
     groupsTitle: '조별 순위표',
-    groupsDesc: '실시간 반영용 표: 순위, 승-무-패, 득실, 승점, 결과 상태, 진출선을 함께 보여줍니다.',
+    groupsDesc: '각 조의 순위, 승점, 승-무-패, 득점, 실점, 득실차, 최근 흐름과 진출권을 비교할 수 있습니다.',
     popularTitle: '인기 국가',
-    footerNote: '비공식 팬/정보 페이지입니다. FIFA/각 협회 공식 로고를 사용하지 않습니다.',
+    footerNote: '2026 FIFA 월드컵 정보를 빠르게 확인하기 위한 비공식 페이지입니다. FIFA/각 협회 공식 로고는 사용하지 않습니다.',
     selectKicker: '국가 선택',
     tapFlag: '국기를 눌러보세요',
-    panelDesc: '조 배정, 최종 선수명단, 경기 경로를 확인할 수 있습니다.',
+    panelDesc: '국가를 선택하면 조 배정, 현재 순위, 선수명단, 토너먼트 경로를 함께 확인할 수 있습니다.',
     groupSlot: '조 배정',
     updated: '업데이트',
     finalSquad: '최종 선수명단',
@@ -432,12 +442,20 @@ function applyLanguage(lang) {
   renderWarmups();
 }
 
-resetBtn.addEventListener('click', () => {
+function clearSelection(scrollToStandings = false) {
   selectedTeam = null;
   renderPanelEmpty();
   renderBracket();
   renderGroups();
-});
+  renderCards();
+  renderWarmups();
+  document.querySelector('.bracket-wrap')?.scrollTo({ left: 0, behavior: 'smooth' });
+  if (scrollToStandings) {
+    document.querySelector('.groups-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+resetBtn.addEventListener('click', () => clearSelection(true));
 
 langButtons.forEach((btn) => {
   btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
