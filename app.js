@@ -18,7 +18,7 @@ let currentLang = localStorage.getItem('wc-lang') || 'en';
 const copy = {
   en: {
     eyebrow: 'World Cup 2026',
-    title: 'World Cup 2026 Dashboard',
+    title: 'World Cup 2026 Standings',
     lead: 'Fast tables first: group standings, match results, and the official Round of 32 path when you need it.',
     adTitle: 'Ad slot',
     adSub: 'AdSense placeholder',
@@ -30,7 +30,7 @@ const copy = {
     liveUpdated: 'Live feed updated',
     source: 'Source',
     seoTitle: '2026 FIFA World Cup standings, schedule, and bracket',
-    seoDesc: 'Use this page to check every real group table, match result, upcoming fixture, Round of 32 slot, knockout path, and national team squad for the 2026 FIFA World Cup. The dashboard is designed for quick search and reading before and during matchdays.',
+    seoDesc: 'Use this page to check every real group table, match result, upcoming fixture, Round of 32 slot, knockout path, and national team squad for the 2026 FIFA World Cup. It is designed for quick search and reading before and during matchdays.',
     seoPointOne: 'Group standings: rank, points, W-D-L record, goals for, goals against, and goal difference.',
     seoPointTwo: 'Match information: live-ready World Cup results plus pre-tournament international friendly results.',
     seoPointThree: 'Tournament path: official Round of 32 slots through the final, with team squads and country guides.',
@@ -88,7 +88,7 @@ const copy = {
   },
   ko: {
     eyebrow: '월드컵 2026',
-    title: '2026 월드컵 대시보드',
+    title: '2026 월드컵 순위표',
     lead: '먼저 순위표를 빠르게 보고, 필요할 때만 경기 결과와 32강 경로를 열어보세요.',
     adTitle: '광고 영역',
     adSub: 'AdSense 자리',
