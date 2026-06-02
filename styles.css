@@ -181,6 +181,26 @@ main {
 .bracket-wrap { overflow-x: auto; padding: .35rem .35rem .8rem; border: 1px solid var(--line); border-radius: 20px; background: #f8fafc; }
 .bracket-wrap::after { content: var(--scroll-hint); display: block; color: var(--muted); font-size: .78rem; margin-top: .45rem; text-align: right; }
 .bracket { min-width: 1180px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; align-items: center; }
+.summary-bracket { min-width: 0; display: block; }
+.home-slot-summary { overflow: visible; padding: 1rem; background: #ffffff; }
+.home-slot-summary::before { content: "Home summary · full Round of 32 slots live on the detail page"; }
+body[data-lang="ko"] .home-slot-summary::before { content: "홈 요약 · 전체 32강 공식 슬롯은 상세 페이지에서 확인"; }
+.home-slot-summary::after { display: none; }
+.full-slot-list::after { content: "All 16 official Round of 32 match slots"; }
+body[data-lang="ko"] .full-slot-list::after { content: "32강 공식 슬롯 16경기 전체 목록"; }
+.slot-summary-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .9rem; }
+.slot-summary-head h2 { margin: 0 0 .35rem; font-size: clamp(1.15rem, 2vw, 1.45rem); }
+.slot-summary-head p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 62ch; }
+.slot-summary-head .squad-link { flex: 0 0 auto; margin-top: 0; white-space: nowrap; }
+.slot-summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.slot-summary-card { border: 1px solid var(--line); background: #f8fbff; border-radius: 18px; padding: .85rem; }
+.slot-summary-meta { display: flex; justify-content: space-between; gap: .75rem; color: var(--muted); font-size: .78rem; margin-bottom: .65rem; }
+.slot-summary-meta strong { color: var(--blue); }
+.slot-summary-row { display: grid; gap: .18rem; border-top: 1px solid var(--line); padding-top: .55rem; margin-top: .55rem; }
+.slot-summary-row span { color: var(--muted); font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
+.slot-summary-row strong { font-size: .95rem; }
+.slot-summary-row small { color: var(--muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.slot-summary-note { margin: .8rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
 .round { display: grid; gap: .8rem; }
 .round-title { color: var(--muted); font-size: .9rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .2rem; }
 .match {
@@ -326,6 +346,8 @@ button.standings-row { cursor: pointer; }
   margin: .15rem .25rem .7rem;
 }
 body[data-lang="ko"] .bracket-wrap::before { content: "2026 공식 대진 경로 · 현재는 개최도시 기준 날짜, 정확한 킥오프 시간 확보 시 로컬시간 자동 변환"; }
+.home-slot-summary::before { content: "Home summary · full Round of 32 slots live on the detail page"; }
+body[data-lang="ko"] .home-slot-summary::before { content: "홈 요약 · 전체 32강 공식 슬롯은 상세 페이지에서 확인"; }
 .match-label span:first-child { color: var(--blue); font-weight: 900; }
 .placeholder .seed { border: 1px solid var(--line); border-radius: 999px; padding: .18rem .45rem; background: var(--surface); font-weight: 900; }
 .team-card:hover { border-color: var(--blue); background: #eff6ff; transform: translateY(-1px); transition: background .16s ease, border-color .16s ease, transform .16s ease; }
@@ -341,6 +363,9 @@ footer p { margin: .2rem 0; }
   .team-panel { position: static; min-height: auto; }
   .status-strip { align-items: flex-start; flex-direction: column; }
   .bracket { min-width: 840px; }
+  .summary-bracket { min-width: 0; }
+  .slot-summary-head { flex-direction: column; }
+  .slot-summary-grid { grid-template-columns: 1fr; }
 }
 
 

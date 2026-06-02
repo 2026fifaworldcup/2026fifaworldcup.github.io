@@ -48,12 +48,17 @@ const copy = {
     japanGuide: 'Japan 2026 guide',
     footerNote: 'Unofficial 2026 FIFA World Cup information page. No FIFA or association official logos are used.',
     selectKicker: 'Tournament dashboard',
-    tapFlag: 'Real bracket slots',
-    panelDesc: 'Start with the 48-team group table, then follow the Round of 32 slots and each country page for squad and path details.',
+    tapFlag: 'Round of 32 official slots',
+    panelDesc: 'The home dashboard shows a short official-slot summary first. Use the group standings for actual team position, then open the detail page for all 16 Round of 32 match slots.',
     panelStatTeams: 'Teams',
     panelStatGroups: 'Groups',
     panelStatKnockout: 'Round of 32 matches',
-    openBracket: 'Open Round of 32 bracket',
+    openBracket: 'Open full Round of 32 slots',
+    bracketSummaryTitle: 'Round of 32 official slots',
+    bracketSummaryDesc: 'Teams are not fixed yet. These are the official group-position slots that decide the knockout draw after the group stage.',
+    bracketSummaryNote: 'Showing 4 key examples on the home dashboard. Open the detail page for all 16 matches.',
+    bracketPrimarySlot: 'Slot',
+    bracketOpponentSlot: 'Opponent',
     navRound: 'Round of 32',
     navAbout: 'About',
     navPrivacy: 'Privacy',
@@ -113,12 +118,17 @@ const copy = {
     japanGuide: '일본 2026 가이드',
     footerNote: '2026 FIFA 월드컵 정보를 빠르게 확인하기 위한 비공식 페이지입니다. FIFA/각 협회 공식 로고는 사용하지 않습니다.',
     selectKicker: '대회 대시보드',
-    tapFlag: '실제 대진 슬롯',
-    panelDesc: '48개 팀 조별 순위표에서 시작해 32강 대진 슬롯, 국가별 선수명단과 토너먼트 경로까지 이어서 확인할 수 있습니다.',
+    tapFlag: '32강 공식 슬롯',
+    panelDesc: '홈에서는 공식 슬롯을 짧게 요약해 보여줍니다. 실제 팀 위치는 조별 순위표에서 확인하고, 전체 16경기 슬롯은 상세 페이지에서 확인하세요.',
     panelStatTeams: '참가국',
     panelStatGroups: '조',
     panelStatKnockout: '32강 경기',
-    openBracket: '32강 대진표 열기',
+    openBracket: '전체 32강 슬롯 보기',
+    bracketSummaryTitle: '32강 공식 슬롯 요약',
+    bracketSummaryDesc: '아직 실제 팀 대진은 확정 전입니다. 조별리그 결과에 따라 결정되는 공식 조 순위 슬롯을 먼저 보여줍니다.',
+    bracketSummaryNote: '홈에서는 핵심 예시 4경기만 보여줍니다. 전체 16경기는 상세 페이지에서 확인하세요.',
+    bracketPrimarySlot: '슬롯',
+    bracketOpponentSlot: '상대 슬롯',
     navRound: '32강 대진표',
     navAbout: '소개',
     navPrivacy: '개인정보',
@@ -293,7 +303,46 @@ function renderTeamButton(code, match) {
   return button;
 }
 
+function renderSlotSummary(match) {
+  const [primary, opponent] = match.teams;
+  return `
+    <article class="slot-summary-card">
+      <div class="slot-summary-meta"><strong>${match.label}</strong><span>${match.time || ''}</span></div>
+      <div class="slot-summary-row">
+        <span>${t('bracketPrimarySlot')}</span>
+        <strong>${slotLabel(primary)}</strong>
+        <small>${slotCandidates(primary)}</small>
+      </div>
+      <div class="slot-summary-row">
+        <span>${t('bracketOpponentSlot')}</span>
+        <strong>${slotLabel(opponent)}</strong>
+        <small>${slotCandidates(opponent)}</small>
+      </div>
+    </article>
+  `;
+}
+
+function renderBracketSummary() {
+  const round32 = data.rounds.find((round) => round.id === 'r32') || data.rounds[0];
+  const examples = (round32?.matches || []).slice(0, 4);
+  bracketEl.innerHTML = `
+    <div class="slot-summary-head">
+      <div>
+        <h2>${t('bracketSummaryTitle')}</h2>
+        <p>${t('bracketSummaryDesc')}</p>
+      </div>
+      <a class="squad-link secondary" href="./round-of-32.html">${t('openBracket')}</a>
+    </div>
+    <div class="slot-summary-grid">${examples.map(renderSlotSummary).join('')}</div>
+    <p class="slot-summary-note">${t('bracketSummaryNote')}</p>
+  `;
+}
+
 function renderBracket() {
+  if (bracketEl.dataset.mode === 'summary') {
+    renderBracketSummary();
+    return;
+  }
   bracketEl.innerHTML = '';
   data.rounds.forEach((round) => {
     const roundEl = document.createElement('div');
