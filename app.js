@@ -11,15 +11,15 @@ let currentLang = localStorage.getItem('wc-lang') || 'en';
 const copy = {
   en: {
     eyebrow: 'World Cup 2026',
-    title: 'World Cup Flag Bracket',
-    lead: 'Check the real 2026 World Cup groups, official knockout slots, and final squads in a fast flag-first view.',
+    title: 'World Cup Live Table',
+    lead: 'Check live-ready 2026 World Cup group standings, W-D-L records, results, official knockout slots, and squads in a fast table-first view.',
     adTitle: 'Ad slot',
     adSub: 'AdSense placeholder',
-    statusTitle: 'Real groups + final squads loaded',
-    statusDesc: 'Use the language buttons at the top to switch the whole page.',
+    statusTitle: 'Live-ready group standings + knockout path',
+    statusDesc: 'Built for quick reading: rank, W-D-L, points, recent results, and official knockout slots.',
     reset: 'Reset view',
-    groupsTitle: 'Real groups',
-    groupsDesc: 'The top two teams in each group plus the eight best third-placed teams advance to the Round of 32.',
+    groupsTitle: 'Group standings',
+    groupsDesc: 'Live table format: rank, W-D-L, goals, points, result status, and advancement line.',
     popularTitle: 'Popular teams',
     footerNote: 'Unofficial fan/information page. No FIFA or association official logos are used.',
     selectKicker: 'Select a team',
@@ -35,18 +35,29 @@ const copy = {
     openTeam: 'Open national team page',
     tbd: 'TBD',
     scrollHint: 'Scroll horizontally for Final →',
+    rank: 'Rank',
+    team: 'Team',
+    record: 'W-D-L',
+    goalDiff: 'GF-GA',
+    points: 'Pts',
+    form: 'Result',
+    played: 'P',
+    notStarted: 'Not started',
+    advancing: 'Advancing',
+    bubble: 'Bubble',
+    eliminated: 'Out',
   },
   ko: {
     eyebrow: '월드컵 2026',
-    title: '월드컵 국기 대진표',
-    lead: '2026 월드컵 실제 조편성, 공식 토너먼트 슬롯, 최종 선수명단을 국기 중심으로 빠르게 확인하세요.',
+    title: '월드컵 실시간 순위표',
+    lead: '2026 월드컵 조별 순위, 승-무-패, 경기 결과, 공식 토너먼트 슬롯, 선수명단을 표 중심으로 빠르게 확인하세요.',
     adTitle: '광고 영역',
     adSub: 'AdSense 자리',
-    statusTitle: '실제 조편성 + 최종 선수명단 반영',
-    statusDesc: '상단 언어 버튼으로 전체 페이지를 영어/한국어로 전환할 수 있습니다.',
+    statusTitle: '실시간 대응 조별 순위 + 토너먼트 경로',
+    statusDesc: '순위, 승-무-패, 승점, 최근 결과, 공식 토너먼트 슬롯을 빠르게 읽는 구조입니다.',
     reset: '전체 보기',
-    groupsTitle: '실제 조편성',
-    groupsDesc: '각 조 상위 2팀과 성적 좋은 조 3위 8팀이 32강에 진출합니다.',
+    groupsTitle: '조별 순위표',
+    groupsDesc: '실시간 반영용 표: 순위, 승-무-패, 득실, 승점, 결과 상태, 진출선을 함께 보여줍니다.',
     popularTitle: '인기 국가',
     footerNote: '비공식 팬/정보 페이지입니다. FIFA/각 협회 공식 로고를 사용하지 않습니다.',
     selectKicker: '국가 선택',
@@ -62,6 +73,17 @@ const copy = {
     openTeam: '국가대표 페이지 열기',
     tbd: '미정',
     scrollHint: '결승까지 보려면 가로로 스크롤 →',
+    rank: '순위',
+    team: '팀',
+    record: '승-무-패',
+    goalDiff: '득-실',
+    points: '승점',
+    form: '결과',
+    played: '경기',
+    notStarted: '시작 전',
+    advancing: '진출권',
+    bubble: '3위 경쟁',
+    eliminated: '탈락권',
   },
 };
 
@@ -156,24 +178,115 @@ function renderBracket() {
   });
 }
 
+function emptyStanding(code, group, index) {
+  return {
+    code,
+    group,
+    slot: index + 1,
+    played: 0,
+    wins: 0,
+    draws: 0,
+    losses: 0,
+    gf: 0,
+    ga: 0,
+    gd: 0,
+    points: 0,
+    form: [],
+  };
+}
+
+function computeGroupStandings(group, codes) {
+  const rows = new Map(codes.map((code, index) => [code, emptyStanding(code, group, index)]));
+  const matches = (data.groupMatches || []).filter((match) => match.group === group && match.played && rows.has(match.home) && rows.has(match.away));
+
+  matches.forEach((match) => {
+    const home = rows.get(match.home);
+    const away = rows.get(match.away);
+    const homeGoals = Number(match.homeGoals || 0);
+    const awayGoals = Number(match.awayGoals || 0);
+    home.played += 1;
+    away.played += 1;
+    home.gf += homeGoals;
+    home.ga += awayGoals;
+    away.gf += awayGoals;
+    away.ga += homeGoals;
+
+    if (homeGoals > awayGoals) {
+      home.wins += 1; home.points += 3; home.form.push('W');
+      away.losses += 1; away.form.push('L');
+    } else if (homeGoals < awayGoals) {
+      away.wins += 1; away.points += 3; away.form.push('W');
+      home.losses += 1; home.form.push('L');
+    } else {
+      home.draws += 1; away.draws += 1;
+      home.points += 1; away.points += 1;
+      home.form.push('D'); away.form.push('D');
+    }
+  });
+
+  return [...rows.values()].map((row) => ({ ...row, gd: row.gf - row.ga })).sort((a, b) =>
+    b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.slot - b.slot
+  );
+}
+
+function advancementLabel(rank) {
+  if (rank <= 2) return t('advancing');
+  if (rank === 3) return t('bubble');
+  return t('eliminated');
+}
+
+function renderForm(row) {
+  if (!row.form.length) return `<span class="form-empty">${t('notStarted')}</span>`;
+  return row.form.slice(-3).map((result) => `<span class="form-pill form-${result.toLowerCase()}">${result}</span>`).join('');
+}
+
 function renderGroups() {
   if (!groupsEl) return;
   groupsEl.innerHTML = '';
   Object.entries(data.groups).forEach(([group, codes]) => {
+    const standings = computeGroupStandings(group, codes);
     const card = document.createElement('article');
-    card.className = 'group-card';
-    card.innerHTML = `<h3>${currentLang === 'ko' ? `${group}조` : `Group ${group}`}</h3>`;
-    codes.forEach((code) => {
-      const team = getTeam(code);
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = ['group-team', selectedTeam === code ? 'selected' : ''].filter(Boolean).join(' ');
-      button.innerHTML = `${flagMarkup(code)}<span><strong>${teamName(team)}</strong><small>${teamStatus(team)}</small></span>`;
-      button.addEventListener('click', () => selectTeam(code));
-      card.appendChild(button);
+    card.className = 'group-card standings-card';
+    card.innerHTML = `
+      <div class="group-card-head">
+        <h3>${currentLang === 'ko' ? `${group}조` : `Group ${group}`}</h3>
+        <span>${standings.reduce((sum, row) => sum + row.played, 0) / 2} / 6</span>
+      </div>
+      <div class="standings-table" role="table" aria-label="${currentLang === 'ko' ? `${group}조 순위표` : `Group ${group} standings`}">
+        <div class="standings-row standings-head" role="row">
+          <span>${t('rank')}</span><span>${t('team')}</span><span>${t('record')}</span><span>${t('goalDiff')}</span><span>${t('points')}</span><span>${t('form')}</span>
+        </div>
+        ${standings.map((row, index) => {
+          const team = getTeam(row.code);
+          return `<button type="button" class="standings-row ${selectedTeam === row.code ? 'selected' : ''}" data-team="${row.code}" role="row">
+            <span class="rank-cell"><strong>${index + 1}</strong><small>${advancementLabel(index + 1)}</small></span>
+            <span class="team-cell">${flagMarkup(row.code)}<strong>${teamName(team)}</strong><small>${teamStatus(team)}</small></span>
+            <span>${row.wins}-${row.draws}-${row.losses}</span>
+            <span>${row.gf}-${row.ga}</span>
+            <span class="points-cell">${row.points}</span>
+            <span class="form-cell">${renderForm(row)}</span>
+          </button>`;
+        }).join('')}
+      </div>
+    `;
+    card.querySelectorAll('.standings-row[data-team]').forEach((button) => {
+      button.addEventListener('click', () => selectTeam(button.dataset.team));
     });
     groupsEl.appendChild(card);
   });
+}
+
+function findTeamGroup(code) {
+  return Object.entries(data.groups).find(([, codes]) => codes.includes(code));
+}
+
+function currentStandingFor(code) {
+  const groupEntry = findTeamGroup(code);
+  if (!groupEntry) return null;
+  const [group, codes] = groupEntry;
+  const standings = computeGroupStandings(group, codes);
+  const index = standings.findIndex((row) => row.code === code);
+  return index >= 0 ? { ...standings[index], rank: index + 1 } : null;
 }
 
 function renderSquad(team) {
@@ -198,6 +311,7 @@ function renderPanelEmpty() {
 function selectTeam(code) {
   const team = getTeam(code);
   if (!team) return;
+  const standing = currentStandingFor(code);
   selectedTeam = code;
   panelEl.innerHTML = `
     <p class="panel-kicker">${team.confed}</p>
@@ -205,6 +319,7 @@ function selectTeam(code) {
     <h2>${teamName(team)}</h2>
     <div class="meta-list">
       <div><span>${t('groupSlot')}</span><strong>${teamStatus(team)}</strong></div>
+      ${standing ? `<div><span>${t('rank')}</span><strong>${standing.rank} · ${standing.wins}-${standing.draws}-${standing.losses} · ${standing.points}${currentLang === 'ko' ? '점' : ' pts'}</strong></div>` : ''}
       <div><span>${t('updated')}</span><strong>${data.updatedAt}</strong></div>
     </div>
     <div class="squad-header"><strong>${t('finalSquad')}</strong><span>${team.squad.length} ${t('players')}</span></div>
