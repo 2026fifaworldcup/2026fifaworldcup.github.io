@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://2026fifaworldcup.github.io/sitemap.xml
