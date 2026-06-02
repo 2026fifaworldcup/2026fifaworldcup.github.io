@@ -98,6 +98,9 @@ a { color: inherit; }
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
+body[data-lang="ko"] h1 { font-size: clamp(2.25rem, 6vw, 4.9rem); letter-spacing: -0.055em; }
+.bracket-wrap { box-shadow: inset -18px 0 24px -26px rgba(37, 99, 235, .55); }
+
 .hero-copy { border-radius: 32px; padding: var(--card-pad); position: relative; }
 .language-switch { display: inline-flex; gap: .35rem; padding: .28rem; margin-bottom: 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--elevated); }
 .lang-btn { border: 0; border-radius: 999px; padding: .5rem .85rem; color: var(--muted); background: transparent; font-weight: 900; cursor: pointer; }
@@ -173,7 +176,7 @@ main {
 .player-main strong { display: block; font-size: .9rem; }
 .player-main small, .player-meta { display: block; color: var(--muted); font-size: .72rem; }
 .player-meta { grid-column: 2; }
-.squad-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; text-align: center; text-decoration: none; color: #06101f; background: var(--green); padding: .78rem 1rem; border-radius: 14px; font-weight: 900; margin-top: 1rem; }
+.squad-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; text-align: center; text-decoration: none; color: #ffffff; background: var(--green); padding: .78rem 1rem; border-radius: 14px; font-weight: 900; margin-top: 1rem; }
 
 .bracket-wrap { overflow-x: auto; padding: .35rem .35rem .8rem; border: 1px solid var(--line); border-radius: 20px; background: #f8fafc; }
 .bracket-wrap::after { content: var(--scroll-hint); display: block; color: var(--muted); font-size: .78rem; margin-top: .45rem; text-align: right; }
@@ -278,6 +281,54 @@ button.standings-row { cursor: pointer; }
 .team-card small { color: var(--muted); }
 .tournament-stat { display: inline-flex; align-items: center; justify-content: center; width: fit-content; max-width: 100%; margin-top: .45rem; padding: .32rem .55rem; border-radius: 999px; background: #eff6ff; border: 1px solid rgba(37,99,235,.22); color: var(--blue) !important; font-weight: 900; }
 
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1.15rem;
+}
+.hero-stats span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border: 1px solid var(--line);
+  background: #f8fbff;
+  border-radius: 999px;
+  padding: .55rem .75rem;
+  color: var(--muted);
+  font-weight: 800;
+}
+.hero-stats strong { color: var(--blue); }
+.hero-stats em { font-style: normal; }
+.panel-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .55rem;
+  margin-top: 1rem;
+}
+.panel-stat-grid div {
+  border: 1px solid var(--line);
+  background: #f8fbff;
+  border-radius: 16px;
+  padding: .7rem .55rem;
+}
+.panel-stat-grid strong { display: block; color: var(--blue); font-size: 1.35rem; line-height: 1; }
+.panel-stat-grid span { display: block; color: var(--muted); font-size: .68rem; font-weight: 900; margin-top: .25rem; }
+.squad-link.secondary { background: #eff6ff; border: 1px solid rgba(37,99,235,.22); color: var(--blue); }
+.bracket-wrap::before {
+  content: "2026 official bracket path · slots update as standings change";
+  display: block;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .02em;
+  margin: .15rem .25rem .7rem;
+}
+body[data-lang="ko"] .bracket-wrap::before { content: "2026 공식 대진 경로 · 순위 확정 시 슬롯 자동 반영"; }
+.match-label span:first-child { color: var(--blue); font-weight: 900; }
+.placeholder .seed { border: 1px solid var(--line); border-radius: 999px; padding: .18rem .45rem; background: var(--surface); font-weight: 900; }
+.team-card:hover { border-color: var(--blue); background: #eff6ff; transform: translateY(-1px); transition: background .16s ease, border-color .16s ease, transform .16s ease; }
+
 footer { padding: 2rem; color: var(--muted); text-align: center; }
 footer p { margin: .2rem 0; }
 .page-bottom-cta { display: flex; justify-content: center; padding: 1rem; }
@@ -315,6 +366,8 @@ footer p { margin: .2rem 0; }
 @media (max-width: 620px) {
   .standings-table { overflow-x: auto; padding-bottom: .2rem; }
   .standings-row { min-width: 520px; }
+  .panel-stat-grid { grid-template-columns: 1fr; }
+  .hero-stats span { flex: 1 1 100%; justify-content: space-between; }
 }
 
 .info-card { border: 1px solid var(--line); background: var(--surface); border-radius: 28px; padding: var(--card-pad); line-height: 1.75; color: var(--text); }
