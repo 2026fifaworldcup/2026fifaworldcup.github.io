@@ -206,6 +206,15 @@ function openTeamPage(code) {
   if (href && href !== '#') window.location.href = href;
 }
 
+function scrollToGroup(group) {
+  const target = document.querySelector(`#group-${group}`);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.classList.add('pulse');
+    window.setTimeout(() => target.classList.remove('pulse'), 1100);
+  }
+}
+
 function slotLabel(slot) {
   if (currentLang === 'ko') {
     return slot
@@ -221,6 +230,29 @@ function slotLabel(slot) {
     .replace(/3rd Group ([A-L/]+)/g, '3rd-place candidate: Group $1')
     .replace(/Winner Match (\d+)/g, 'Winner M$1')
     .replace(/Loser Match (\d+)/g, 'Loser M$1');
+}
+
+function slotCandidateGroups(slot) {
+  const direct = slot.match(/(?:Winner|Runner-up) Group ([A-L])/);
+  if (direct) return [direct[1]];
+  const third = slot.match(/3rd Group ([A-L/]+)/);
+  if (third) return third[1].split('/');
+  return [];
+}
+
+function slotCandidates(slot) {
+  const groups = slotCandidateGroups(slot);
+  if (!groups.length) return '';
+  const groupsText = groups.map((group) => {
+    const teams = (data.groups[group] || [])
+      .map((code) => getTeam(code))
+      .filter(Boolean)
+      .map((team) => `${team.flag} ${teamName(team)}`)
+      .join(', ');
+    return `${group}: ${teams}`;
+  }).join(' · ');
+  const prefix = currentLang === 'ko' ? '가능 팀' : 'Candidates';
+  return `${prefix}: ${groupsText}`;
 }
 
 function posClass(pos) {
@@ -244,11 +276,16 @@ function renderTeamButton(code, match) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = ['team-row', isWinner ? 'winner' : '', selectedTeam === code ? 'selected' : '', isSlot ? 'placeholder' : ''].filter(Boolean).join(' ');
-  button.disabled = isSlot;
-  button.dataset.team = code;
+  const candidateText = isSlot ? slotCandidates(code) : '';
+  const candidateGroups = isSlot ? slotCandidateGroups(code) : [];
+  button.disabled = isSlot && !candidateGroups.length;
   button.innerHTML = isSlot
-    ? `<span class="slot-name">${slotLabel(code)}</span><span class="seed">${t('tbd')}</span>`
+    ? `<span class="slot-name">${slotLabel(code)}${candidateText ? `<small>${candidateText}</small>` : ''}</span><span class="seed">${candidateGroups.length ? (currentLang === 'ko' ? '조 보기' : 'Group') : (currentLang === 'ko' ? '미정' : 'Open')}</span>`
     : `<span>${flagMarkup(code)}<strong>${teamName(team)}</strong></span><span class="seed">${teamStatus(team)}</span>`;
+  if (isSlot && candidateGroups.length) {
+    button.setAttribute('aria-label', `${slotLabel(code)} ${currentLang === 'ko' ? '관련 조 순위표로 이동' : 'show related group standings'}`);
+    button.addEventListener('click', () => scrollToGroup(candidateGroups[0]));
+  }
   if (!isSlot) {
     button.setAttribute('aria-label', `Open ${teamName(team)} World Cup 2026 page`);
     button.addEventListener('click', () => openTeamPage(code));
@@ -344,6 +381,7 @@ function renderGroups() {
   Object.entries(data.groups).forEach(([group, codes]) => {
     const standings = computeGroupStandings(group, codes);
     const card = document.createElement('article');
+    card.id = `group-${group}`;
     card.className = 'group-card standings-card';
     card.innerHTML = `
       <div class="group-card-head">

@@ -213,11 +213,12 @@ main {
 
 .team-row strong { display: inline-block; font-size: .88rem; margin-left: .35rem; }
 .team-row small { display: block; color: var(--muted); font-size: .7rem; margin-left: 2.25rem; }
-.slot-name { font-size: .86rem; font-weight: 800; text-align: left; color: var(--text); }
-.slot-name small { display: block; color: var(--muted); font-size: .74rem; margin-top: .12rem; }
-.seed { color: var(--muted); font-size: .76rem; text-align: right; }
-.placeholder { color: var(--muted); cursor: default; }
-.placeholder:hover { border-color: transparent; background: var(--elevated); }
+.slot-name { flex: 1; min-width: 0; font-size: .86rem; font-weight: 800; text-align: left; color: var(--text); }
+.slot-name small { display: block; color: var(--muted); font-size: .72rem; font-weight: 700; line-height: 1.35; margin-top: .18rem; max-height: 3.9em; overflow: hidden; }
+.seed { flex: 0 0 auto; color: var(--muted); font-size: .76rem; text-align: right; }
+.placeholder { align-items: flex-start; color: var(--muted); cursor: pointer; }
+.placeholder:hover { border-color: var(--blue); background: rgba(100,181,255,.14); }
+.group-card.pulse { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(100,181,255,.18); transition: box-shadow .2s ease, border-color .2s ease; }
 
 .groups-section { margin-top: 1.2rem; border-radius: 28px; padding: 1.2rem; }
 .live-section { margin-top: 1.2rem; border-radius: 28px; padding: 1.2rem; }
