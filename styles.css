@@ -158,6 +158,11 @@ main {
 .quiet-seo { margin-top: 1.2rem; background: #ffffff; box-shadow: none; }
 .quiet-seo h2 { font-size: 1rem; }
 .quiet-seo p, .quiet-seo ul { font-size: .88rem; line-height: 1.55; }
+.faq-section { margin-top: 1.2rem; background: #ffffff; }
+.faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; margin-top: .8rem; }
+.faq-grid article { border: 1px solid var(--line); border-radius: 16px; padding: .95rem; background: #f8fbff; }
+.faq-grid h3 { margin: 0 0 .45rem; font-size: .98rem; }
+.faq-grid p { margin: 0; font-size: .88rem; line-height: 1.55; color: var(--muted); }
 
 .layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 1.2rem; align-items: start; }
 .more-paths { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); margin-top: 1.2rem; }
