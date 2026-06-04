@@ -424,27 +424,51 @@ footer p { margin: .2rem 0; }
 .info-card a { color: var(--green); }
 
 
-.tournament-bracket-wrap { margin-top: 1.2rem; padding: 1rem; background: #ffffff; box-shadow: inset -18px 0 24px -26px rgba(37, 99, 235, .55); }
-.tournament-bracket-wrap::after { content: "Scroll sideways to see the full knockout path"; }
-body[data-lang="ko"] .tournament-bracket-wrap::after { content: "옆으로 스크롤하면 결승까지 전체 대진을 볼 수 있습니다"; }
+.knockout-page { --content-max: 1180px; }
+.tournament-bracket-wrap { margin-top: 1.2rem; padding: 1rem; overflow-x: hidden; background: #ffffff; box-shadow: inset -18px 0 24px -26px rgba(37, 99, 235, .55); }
+.tournament-bracket-wrap::after { content: "Rounds are stacked for easier reading"; display: block; color: var(--muted); font-size: .78rem; margin-top: .45rem; text-align: left; }
+body[data-lang="ko"] .tournament-bracket-wrap::after { content: "보기 편하게 라운드별 세로 정렬"; }
 .tournament-bracket-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
 .tournament-bracket-head h2 { margin: 0 0 .35rem; font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
 .tournament-bracket-head p { margin: 0; color: var(--muted); line-height: 1.55; max-width: 68ch; }
-.tournament-bracket { min-width: 1480px; display: grid; grid-template-columns: 1.28fr 1.08fr .98fr .9fr .95fr .75fr; gap: 1rem; align-items: stretch; }
-.knockout-round { display: grid; grid-template-rows: auto 1fr; min-width: 0; }
-.knockout-round-stack { display: flex; flex-direction: column; justify-content: space-around; gap: .7rem; min-height: 100%; position: relative; }
-.knockout-round .round-title { min-height: 2.5rem; margin-bottom: .55rem; }
-.bracket-node { margin: 0; padding: .62rem; border-radius: 16px; box-shadow: 0 8px 18px rgba(15, 23, 42, .045); }
-.bracket-node::after { content: ""; position: absolute; right: -.72rem; top: 50%; width: .72rem; border-top: 2px solid rgba(37, 99, 235, .24); }
+.tournament-bracket { min-width: 0; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.knockout-round { display: block; min-width: 0; }
+.knockout-round-stack { display: grid; gap: .55rem; min-height: 0; min-width: 0; position: relative; }
+.knockout-round .round-title { min-height: 0; margin: 0 0 .55rem; }
+.bracket-node { width: 100%; max-width: 100%; min-width: 0; margin: 0; padding: .62rem; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 18px rgba(15, 23, 42, .045); }
+.bracket-node::after { display: none; }
 .knockout-champion .bracket-node::after { content: none; }
 .bracket-node .match-label { gap: .45rem; line-height: 1.25; }
-.bracket-node .team-row { min-height: 42px; padding: .42rem .55rem; cursor: default; }
+.bracket-node .team-row { min-width: 0; min-height: 42px; padding: .42rem .55rem; cursor: default; }
+.bracket-node .slot-name { overflow: hidden; text-overflow: ellipsis; }
 .bracket-node .team-row:hover { border-color: transparent; background: var(--elevated); }
 .knockout-final .bracket-node:first-child { border-color: rgba(50,213,131,.42); background: linear-gradient(180deg, #ffffff, rgba(50,213,131,.08)); }
-.knockout-champion .bracket-node { align-self: center; border-color: rgba(250,204,21,.55); background: linear-gradient(180deg, #fffdf2, #ffffff); }
+.knockout-champion .bracket-node { align-self: stretch; border-color: rgba(250,204,21,.55); background: linear-gradient(180deg, #fffdf2, #ffffff); }
 .knockout-champion .team-row { background: rgba(250,204,21,.16); }
+@media (min-width: 1100px) {
+  .tournament-bracket-wrap { overflow-x: auto; }
+  .tournament-bracket-wrap::after { content: "Desktop view: full knockout path"; text-align: right; }
+  body[data-lang="ko"] .tournament-bracket-wrap::after { content: "데스크톱 보기: 결승까지 전체 대진 경로"; }
+  .tournament-bracket { min-width: 1120px; grid-template-columns: 1.2fr 1.02fr .92fr .84fr .9fr .68fr; gap: .85rem; align-items: stretch; }
+  .knockout-round { display: grid; grid-template-rows: auto 1fr; }
+  .knockout-round-stack { display: flex; flex-direction: column; justify-content: space-around; gap: .62rem; min-height: 100%; }
+  .knockout-round .round-title { min-height: 2.5rem; }
+  .bracket-node::after { content: ""; display: block; position: absolute; right: -.62rem; top: 50%; width: .62rem; border-top: 2px solid rgba(37, 99, 235, .24); }
+  .knockout-champion .bracket-node::after { display: none; }
+}
 @media (max-width: 760px) {
-  .tournament-bracket-head { display: grid; }
-  .tournament-bracket { min-width: 1320px; gap: .75rem; }
-  .bracket-node .match-label { display: grid; }
+  body { overflow-x: hidden; }
+  .content-page { width: min(100% - 1rem, var(--content-max)); overflow-x: hidden; }
+  .content-page h1 { font-size: clamp(1.85rem, 8.7vw, 2.35rem); line-height: 1.04; overflow-wrap: anywhere; }
+  body[data-lang="ko"] h1 { font-size: clamp(1.9rem, 9vw, 2.45rem); }
+  .page-hero-card { overflow: hidden; padding: 1.25rem; }
+  .site-links { gap: .4rem; }
+  .site-links a { padding: .45rem .62rem; }
+  .tournament-bracket-wrap { padding: .85rem; }
+  .tournament-bracket-wrap::before { font-size: .72rem; line-height: 1.45; }
+  .tournament-bracket-head { display: grid; gap: .7rem; }
+  .tournament-bracket-head .source-pill { justify-self: start; }
+  .bracket-node { padding: .58rem; box-shadow: 0 6px 16px rgba(15, 23, 42, .045); }
+  .bracket-node .match-label { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+  .bracket-node .team-row { min-height: 40px; }
 }
