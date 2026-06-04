@@ -425,6 +425,7 @@ footer p { margin: .2rem 0; }
 
 
 .knockout-page { --content-max: 1180px; }
+.knockout-page .page-hero-card { position: static; max-height: none; overflow: visible; }
 .tournament-bracket-wrap { margin-top: 1.2rem; padding: 1rem; overflow-x: hidden; background: #ffffff; box-shadow: inset -18px 0 24px -26px rgba(37, 99, 235, .55); }
 .tournament-bracket-wrap::after { content: "Rounds are stacked for easier reading"; display: block; color: var(--muted); font-size: .78rem; margin-top: .45rem; text-align: left; }
 body[data-lang="ko"] .tournament-bracket-wrap::after { content: "보기 편하게 라운드별 세로 정렬"; }
@@ -457,18 +458,32 @@ body[data-lang="ko"] .tournament-bracket-wrap::after { content: "보기 편하�
   .knockout-champion .bracket-node::after { display: none; }
 }
 @media (max-width: 760px) {
-  body { overflow-x: hidden; }
-  .content-page { width: min(100% - 1rem, var(--content-max)); overflow-x: hidden; }
-  .content-page h1 { font-size: clamp(1.85rem, 8.7vw, 2.35rem); line-height: 1.04; overflow-wrap: anywhere; }
-  body[data-lang="ko"] h1 { font-size: clamp(1.9rem, 9vw, 2.45rem); }
-  .page-hero-card { overflow: hidden; padding: 1.25rem; }
-  .site-links { gap: .4rem; }
-  .site-links a { padding: .45rem .62rem; }
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  .content-page { width: calc(100vw - 1rem); max-width: calc(100vw - 1rem); overflow-x: hidden; }
+  .knockout-page > * { max-width: 100%; min-width: 0; }
+  .knockout-page .page-hero-card,
+  .knockout-page .page-ad,
+  .knockout-page .tournament-bracket-wrap,
+  .knockout-page .groups-section { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
+  .content-page h1 { max-width: calc(100vw - 3.5rem); font-size: clamp(1.35rem, 6.2vw, 1.75rem); line-height: 1.12; letter-spacing: -0.035em; overflow-wrap: break-word; word-break: normal; white-space: normal; }
+  .content-page h1 > span { display: block; max-width: calc(100vw - 3.5rem); white-space: normal; }
+  body[data-lang="ko"] h1 { font-size: clamp(1.55rem, 7vw, 1.95rem); }
+  .page-hero-card { padding: 1.25rem; }
+  .knockout-page .page-hero-card > * { max-width: min(100%, 310px); }
+  .panel-desc { max-width: min(100%, 310px); overflow-wrap: break-word; }
+  .meta-list { max-width: min(100%, 310px); }
+  .meta-list div { gap: .6rem; }
+  .meta-list strong { min-width: 0; overflow-wrap: anywhere; text-align: right; }
+  .site-links { gap: .4rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .15rem; }
+  .site-links a { flex: 0 0 auto; padding: .45rem .62rem; }
   .tournament-bracket-wrap { padding: .85rem; }
-  .tournament-bracket-wrap::before { font-size: .72rem; line-height: 1.45; }
+  .tournament-bracket-wrap > * { max-width: min(100%, 330px); }
+  .tournament-bracket-wrap::before { content: "2026 official bracket path"; font-size: .72rem; line-height: 1.45; overflow-wrap: break-word; }
+  body[data-lang="ko"] .tournament-bracket-wrap::before { content: "2026 공식 대진 경로"; }
   .tournament-bracket-head { display: grid; gap: .7rem; }
   .tournament-bracket-head .source-pill { justify-self: start; }
   .bracket-node { padding: .58rem; box-shadow: 0 6px 16px rgba(15, 23, 42, .045); }
-  .bracket-node .match-label { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
-  .bracket-node .team-row { min-height: 40px; }
+  .bracket-node .match-label { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); align-items: start; gap: .35rem; }
+  .bracket-node .match-label span:last-child { text-align: right; overflow-wrap: anywhere; }
+  .bracket-node .team-row { min-height: 40px; align-items: center; }
 }
