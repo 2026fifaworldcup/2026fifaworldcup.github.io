@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-02T05:06:48+00:00",
+  "updatedAt": "2026-06-04T07:36:38+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -220,7 +220,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "id": "401856621",
       "kind": "friendly",
       "date": "2026-05-30T12:00Z",
-      "name": "Curacao at Scotland",
+      "name": "Curaçao at Scotland",
       "shortName": "CUW @ SCO",
       "status": {
         "name": "STATUS_FULL_TIME",
@@ -236,7 +236,7 @@ window.WORLD_CUP_LIVE_DATA = {
       },
       "away": {
         "code": "CUW",
-        "name": "Curacao",
+        "name": "Curaçao",
         "score": 1,
         "winner": false
       },
@@ -639,9 +639,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Belgium at Croatia",
       "shortName": "BEL @ CRO",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Stadion HNK Rijeka",
       "home": {
@@ -653,8 +653,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "BEL",
         "name": "Belgium",
-        "score": 0,
-        "winner": false
+        "score": 2,
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
@@ -665,16 +665,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Madagascar at Morocco",
       "shortName": "MAD @ MAR",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Stade Prince Moulay Abdallah",
       "home": {
         "code": "MAR",
         "name": "Morocco",
-        "score": 0,
-        "winner": false
+        "score": 4,
+        "winner": true
       },
       "away": {
         "code": "MAD",
@@ -691,21 +691,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Ghana at Wales",
       "shortName": "GHA @ WAL",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Cardiff City Stadium",
       "home": {
         "code": "WAL",
         "name": "Wales",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
         "code": "GHA",
         "name": "Ghana",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -713,20 +713,20 @@ window.WORLD_CUP_LIVE_DATA = {
     {
       "id": "401871830",
       "kind": "friendly",
-      "date": "2026-06-03T00:00Z",
+      "date": "2026-06-03T00:36Z",
       "name": "New Zealand at Haiti",
       "shortName": "NZL @ HAI",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Chase Stadium",
       "home": {
         "code": "HAI",
         "name": "Haiti",
-        "score": 0,
-        "winner": false
+        "score": 4,
+        "winner": true
       },
       "away": {
         "code": "NZL",
@@ -743,9 +743,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Denmark at Congo DR",
       "shortName": "DEN @ COD",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Stade Maurice Dufrasne",
       "home": {
@@ -769,9 +769,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Algeria at Netherlands",
       "shortName": "ALG @ NED",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "De Kuip",
       "home": {
@@ -783,8 +783,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "ALG",
         "name": "Algeria",
-        "score": 0,
-        "winner": false
+        "score": 1,
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
@@ -795,21 +795,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Dominican Republic at Panama",
       "shortName": "DOM @ PAN",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Estadio Rommel Fernández Gutiérrez",
       "home": {
         "code": "PAN",
         "name": "Panama",
-        "score": 0,
-        "winner": false
+        "score": 4,
+        "winner": true
       },
       "away": {
         "code": "DOM",
         "name": "Dominican Republic",
-        "score": 0,
+        "score": 2,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -821,20 +821,46 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "El Salvador at South Korea",
       "shortName": "SLV @ KOR",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": null,
       "home": {
         "code": "KOR",
         "name": "South Korea",
-        "score": 0,
-        "winner": false
+        "score": 1,
+        "winner": true
       },
       "away": {
         "code": "SLV",
         "name": "El Salvador",
+        "score": 0,
+        "winner": false
+      },
+      "source": "ESPN public scoreboard API"
+    },
+    {
+      "id": "401874358",
+      "kind": "friendly",
+      "date": "2026-06-04T16:30Z",
+      "name": "Mali at Iran",
+      "shortName": "MLI @ IRN",
+      "status": {
+        "name": "STATUS_SCHEDULED",
+        "description": "Scheduled",
+        "completed": false
+      },
+      "venue": "Mardan Stadyumu",
+      "home": {
+        "code": "IRN",
+        "name": "Iran",
+        "score": 0,
+        "winner": false
+      },
+      "away": {
+        "code": "MLI",
+        "name": "Mali",
         "score": 0,
         "winner": false
       },
@@ -1364,7 +1390,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "id": "401873741",
       "kind": "friendly",
       "date": "2026-06-07T00:00Z",
-      "name": "Aruba at Curacao",
+      "name": "Aruba at Curaçao",
       "shortName": "ARU @ CUW",
       "status": {
         "name": "STATUS_SCHEDULED",
@@ -1374,7 +1400,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "venue": "Stadion Ergilio Hato",
       "home": {
         "code": "CUW",
-        "name": "Curacao",
+        "name": "Curaçao",
         "score": 0,
         "winner": false
       },
