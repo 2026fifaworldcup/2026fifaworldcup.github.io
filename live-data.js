@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-05T04:49:42+00:00",
+  "updatedAt": "2026-06-05T22:19:47+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -999,7 +999,7 @@ window.WORLD_CUP_LIVE_DATA = {
     {
       "id": "401871132",
       "kind": "friendly",
-      "date": "2026-06-05T22:15Z",
+      "date": "2026-06-05T22:45Z",
       "name": "Nicaragua at Paraguay",
       "shortName": "NCA @ PAR",
       "status": {
