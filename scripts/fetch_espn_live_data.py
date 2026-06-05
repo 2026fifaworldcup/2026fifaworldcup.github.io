@@ -118,6 +118,38 @@ def friendly_warmups(events: list[dict], qualified: set[str]) -> list[dict]:
     return filtered
 
 
+def existing_payload() -> dict | None:
+    if not OUT_JS.exists():
+        return None
+    text = OUT_JS.read_text(encoding="utf-8")
+    prefix = "window.WORLD_CUP_LIVE_DATA = "
+    if not text.startswith(prefix):
+        return None
+    try:
+        return json.loads(text.removeprefix(prefix).rstrip().rstrip(";"))
+    except json.JSONDecodeError:
+        return None
+
+
+def comparable(payload: dict | None) -> dict | None:
+    if payload is None:
+        return None
+    clone = json.loads(json.dumps(payload, sort_keys=True))
+    clone.pop("updatedAt", None)
+    return clone
+
+
+def write_payload_if_changed(payload: dict) -> bool:
+    old = existing_payload()
+    if comparable(old) == comparable(payload):
+        return False
+    OUT_JS.write_text(
+        "window.WORLD_CUP_LIVE_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n",
+        encoding="utf-8",
+    )
+    return True
+
+
 def main() -> int:
     qualified = load_qualified_codes()
     wc = fetch_json(ESPN_WC)
@@ -133,11 +165,8 @@ def main() -> int:
         "groupMatches": group_matches_from_worldcup(wc.get("events", []), qualified),
         "warmups": friendly_warmups(friendly.get("events", []), qualified),
     }
-    OUT_JS.write_text(
-        "window.WORLD_CUP_LIVE_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n",
-        encoding="utf-8",
-    )
-    print(json.dumps({"qualified": len(qualified), "groupMatches": len(payload["groupMatches"]), "warmups": len(payload["warmups"]), "out": str(OUT_JS)}, ensure_ascii=False))
+    changed = write_payload_if_changed(payload)
+    print(json.dumps({"changed": changed, "qualified": len(qualified), "groupMatches": len(payload["groupMatches"]), "warmups": len(payload["warmups"]), "out": str(OUT_JS)}, ensure_ascii=False))
     return 0
 
 

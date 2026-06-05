@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-04T07:36:38+00:00",
+  "updatedAt": "2026-06-05T04:49:42+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -847,16 +847,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Mali at Iran",
       "shortName": "MLI @ IRN",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Mardan Stadyumu",
       "home": {
         "code": "IRN",
         "name": "Iran",
-        "score": 0,
-        "winner": false
+        "score": 2,
+        "winner": true
       },
       "away": {
         "code": "MLI",
@@ -873,21 +873,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Greece at Sweden",
       "shortName": "GRE @ SWE",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Friends Arena",
       "home": {
         "code": "SWE",
         "name": "Sweden",
-        "score": 0,
+        "score": 2,
         "winner": false
       },
       "away": {
         "code": "GRE",
         "name": "Greece",
-        "score": 0,
+        "score": 2,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -899,21 +899,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Iraq at Spain",
       "shortName": "IRQ @ ESP",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Riazor",
       "home": {
         "code": "ESP",
         "name": "Spain",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
         "code": "IRQ",
         "name": "Iraq",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -925,22 +925,22 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Ivory Coast at France",
       "shortName": "CIV @ FRA",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Stade de la Beaujoire",
       "home": {
         "code": "FRA",
         "name": "France",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
         "code": "CIV",
         "name": "Ivory Coast",
-        "score": 0,
-        "winner": false
+        "score": 2,
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
@@ -951,21 +951,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Guatemala at Czechia",
       "shortName": "GUA @ CZE",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Red Bull Arena",
       "home": {
         "code": "CZE",
         "name": "Czechia",
-        "score": 0,
-        "winner": false
+        "score": 3,
+        "winner": true
       },
       "away": {
         "code": "GUA",
         "name": "Guatemala",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -977,21 +977,21 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Serbia at Mexico",
       "shortName": "SRB @ MEX",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Estadio Nemesio Díez Riega",
       "home": {
         "code": "MEX",
         "name": "Mexico",
-        "score": 0,
-        "winner": false
+        "score": 5,
+        "winner": true
       },
       "away": {
         "code": "SRB",
         "name": "Serbia",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
@@ -1179,32 +1179,6 @@ window.WORLD_CUP_LIVE_DATA = {
       "source": "ESPN public scoreboard API"
     },
     {
-      "id": "401869743",
-      "kind": "friendly",
-      "date": "2026-06-06T19:00Z",
-      "name": "Switzerland at Australia",
-      "shortName": "SUI @ AUS",
-      "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
-      },
-      "venue": "Snapdragon Stadium",
-      "home": {
-        "code": "AUS",
-        "name": "Australia",
-        "score": 0,
-        "winner": false
-      },
-      "away": {
-        "code": "SUI",
-        "name": "Switzerland",
-        "score": 0,
-        "winner": false
-      },
-      "source": "ESPN public scoreboard API"
-    },
-    {
       "id": "401871528",
       "kind": "friendly",
       "date": "2026-06-06T19:00Z",
@@ -1225,6 +1199,32 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "BIH",
         "name": "Bosnia-Herzegovina",
+        "score": 0,
+        "winner": false
+      },
+      "source": "ESPN public scoreboard API"
+    },
+    {
+      "id": "401869743",
+      "kind": "friendly",
+      "date": "2026-06-06T19:00Z",
+      "name": "Australia at Switzerland",
+      "shortName": "AUS @ SUI",
+      "status": {
+        "name": "STATUS_SCHEDULED",
+        "description": "Scheduled",
+        "completed": false
+      },
+      "venue": "Snapdragon Stadium",
+      "home": {
+        "code": "SUI",
+        "name": "Switzerland",
+        "score": 0,
+        "winner": false
+      },
+      "away": {
+        "code": "AUS",
+        "name": "Australia",
         "score": 0,
         "winner": false
       },
@@ -1701,7 +1701,7 @@ window.WORLD_CUP_LIVE_DATA = {
     {
       "id": "401874117",
       "kind": "friendly",
-      "date": "2026-06-10T04:00Z",
+      "date": "2026-06-10T18:00Z",
       "name": "Algeria at Bolivia",
       "shortName": "ALG @ BOL",
       "status": {
