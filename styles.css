@@ -102,12 +102,12 @@ a { color: inherit; }
 body[data-lang="ko"] h1 { font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.055em; }
 .bracket-wrap { box-shadow: inset -18px 0 24px -26px rgba(37, 99, 235, .55); }
 
-.hero-copy { border-radius: 28px; padding: clamp(1rem, 3vw, 1.7rem); position: relative; }
+.hero-copy { border-radius: 28px; padding: clamp(1rem, 3vw, 1.7rem); position: relative; min-width: 0; max-width: 100%; overflow: hidden; }
 .language-switch { display: inline-flex; gap: .35rem; padding: .28rem; margin-bottom: 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--elevated); }
 .lang-btn { border: 0; border-radius: 999px; padding: .5rem .85rem; color: var(--muted); background: transparent; font-weight: 900; cursor: pointer; }
 .lang-btn.active { color: #ffffff; background: var(--blue); box-shadow: none; }
 .eyebrow { color: var(--green); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 .75rem; }
-h1 { font-size: clamp(2.2rem, 6vw, 4.6rem); line-height: .98; margin: 0; letter-spacing: -0.045em; }
+h1 { font-size: clamp(2.2rem, 6vw, 4.6rem); line-height: .98; margin: 0; letter-spacing: -0.045em; overflow-wrap: break-word; text-wrap: balance; }
 h2 small, .round-title small { display: block; color: var(--muted); font-size: .72em; letter-spacing: 0; text-transform: none; margin-top: .15rem; }
 .ko { margin-top: .2rem; }
 .lead { max-width: 680px; margin: 1rem 0 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; }
@@ -412,10 +412,30 @@ footer p { margin: .2rem 0; }
   text-align: left;
 }
 @media (max-width: 620px) {
-  .standings-table { overflow-x: auto; padding-bottom: .2rem; }
+  .hero,
+  main,
+  .content-page,
+  .hero-copy,
+  .hero-copy > *,
+  main > *,
+  .groups-section,
+  .live-section,
+  .cards,
+  .layout,
+  .team-panel,
+  .home-slot-summary { min-width: 0; max-width: 100%; }
+  .hero-copy { width: 100%; }
+  .eyebrow,
+  .lead,
+  .hero-stats,
+  .site-links { width: 100%; max-width: 100%; }
+  .site-links { flex-wrap: wrap; overflow-x: visible; }
+  .site-links a { flex: 1 1 calc(50% - .4rem); }
+  .lead { overflow-wrap: break-word; }
+  .standings-table { overflow-x: auto; padding-bottom: .2rem; -webkit-overflow-scrolling: touch; }
   .standings-row { min-width: 520px; }
   .panel-stat-grid { grid-template-columns: 1fr; }
-  .hero-stats span { flex: 1 1 100%; justify-content: space-between; }
+  .hero-stats span { flex: 1 1 100%; min-width: 0; max-width: 100%; justify-content: space-between; }
 }
 
 .info-card { border: 1px solid var(--line); background: var(--surface); border-radius: 28px; padding: var(--card-pad); line-height: 1.75; color: var(--text); }
@@ -474,8 +494,8 @@ body[data-lang="ko"] .tournament-bracket-wrap::after { content: "보기 편하�
   .meta-list { max-width: min(100%, 310px); }
   .meta-list div { gap: .6rem; }
   .meta-list strong { min-width: 0; overflow-wrap: anywhere; text-align: right; }
-  .site-links { gap: .4rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .15rem; }
-  .site-links a { flex: 0 0 auto; padding: .45rem .62rem; }
+  .site-links { gap: .4rem; flex-wrap: wrap; overflow-x: visible; padding-bottom: .15rem; }
+  .site-links a { flex: 1 1 calc(50% - .4rem); padding: .45rem .62rem; }
   .tournament-bracket-wrap { padding: .85rem; }
   .tournament-bracket-wrap > * { max-width: min(100%, 330px); }
   .tournament-bracket-wrap::before { content: "2026 official bracket path"; font-size: .72rem; line-height: 1.45; overflow-wrap: break-word; }
