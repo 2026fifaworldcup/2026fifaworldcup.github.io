@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-06T02:16:41+00:00",
+  "updatedAt": "2026-06-06T02:31:49+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1029,8 +1029,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Saudi Arabia at Puerto Rico",
       "shortName": "KSA @ PUR",
       "status": {
-        "name": "STATUS_HALFTIME",
-        "description": "Halftime",
+        "name": "STATUS_SECOND_HALF",
+        "description": "Second Half",
         "completed": false
       },
       "venue": "Q2 Stadium",
@@ -1043,7 +1043,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "KSA",
         "name": "Saudi Arabia",
-        "score": 1,
+        "score": 2,
         "winner": false
       },
       "source": "ESPN public scoreboard API"
