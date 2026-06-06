@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-06T18:59:46+00:00",
+  "updatedAt": "2026-06-06T19:29:59+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1133,15 +1133,15 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Chile at Portugal",
       "shortName": "CHI @ POR",
       "status": {
-        "name": "STATUS_HALFTIME",
-        "description": "Halftime",
+        "name": "STATUS_IN_PROGRESS",
+        "description": "In Progress",
         "completed": false
       },
       "venue": "Estádio do Jamor",
       "home": {
         "code": "POR",
         "name": "Portugal",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
@@ -1159,8 +1159,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Germany at United States",
       "shortName": "GER @ USA",
       "status": {
-        "name": "STATUS_IN_PROGRESS",
-        "description": "In Progress",
+        "name": "STATUS_FIRST_HALF",
+        "description": "First Half",
         "completed": false
       },
       "venue": "Soldier Field",
@@ -1185,8 +1185,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Bosnia-Herzegovina at Panama",
       "shortName": "BIH @ PAN",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_IN_PROGRESS",
+        "description": "In Progress",
         "completed": false
       },
       "venue": "Energizer Park",
@@ -1211,8 +1211,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Australia at Switzerland",
       "shortName": "AUS @ SUI",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_IN_PROGRESS",
+        "description": "In Progress",
         "completed": false
       },
       "venue": "Snapdragon Stadium",
