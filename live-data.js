@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-05T22:19:47+00:00",
+  "updatedAt": "2026-06-06T01:46:26+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1003,16 +1003,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Nicaragua at Paraguay",
       "shortName": "NCA @ PAR",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Defensores del Chaco",
       "home": {
         "code": "PAR",
         "name": "Paraguay",
-        "score": 0,
-        "winner": false
+        "score": 4,
+        "winner": true
       },
       "away": {
         "code": "NCA",
@@ -1029,8 +1029,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Saudi Arabia at Puerto Rico",
       "shortName": "KSA @ PUR",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_IN_PROGRESS",
+        "description": "In Progress",
         "completed": false
       },
       "venue": "Q2 Stadium",
@@ -1081,15 +1081,15 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Peru at Haiti",
       "shortName": "PER @ HAI",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_SECOND_HALF",
+        "description": "Second Half",
         "completed": false
       },
       "venue": "Nu Stadium",
       "home": {
         "code": "HAI",
         "name": "Haiti",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
