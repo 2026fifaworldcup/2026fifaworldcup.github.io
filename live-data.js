@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-06T23:33:43+00:00",
+  "updatedAt": "2026-06-06T23:48:50+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1315,9 +1315,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "South Africa at Jamaica",
       "shortName": "RSA @ JAM",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Estadio Hidalgo",
       "home": {
@@ -1329,8 +1329,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "RSA",
         "name": "South Africa",
-        "score": 0,
-        "winner": false
+        "score": 1,
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
@@ -1349,7 +1349,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "home": {
         "code": "BRA",
         "name": "Brazil",
-        "score": 1,
+        "score": 2,
         "winner": false
       },
       "away": {
