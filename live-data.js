@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-06T22:03:00+00:00",
+  "updatedAt": "2026-06-06T22:18:07+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1237,9 +1237,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Scotland at Bolivia",
       "shortName": "SCO @ BOL",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Red Bull Arena",
       "home": {
@@ -1252,7 +1252,7 @@ window.WORLD_CUP_LIVE_DATA = {
         "code": "SCO",
         "name": "Scotland",
         "score": 4,
-        "winner": false
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
@@ -1263,16 +1263,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "New Zealand at England",
       "shortName": "NZL @ ENG",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Raymond James Stadium",
       "home": {
         "code": "ENG",
         "name": "England",
         "score": 1,
-        "winner": false
+        "winner": true
       },
       "away": {
         "code": "NZL",
@@ -1289,9 +1289,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "El Salvador at Qatar",
       "shortName": "SLV @ QAT",
       "status": {
-        "name": "STATUS_IN_PROGRESS",
-        "description": "In Progress",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "BMO Stadium",
       "home": {
@@ -1367,8 +1367,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Türkiye at Venezuela",
       "shortName": "TUR @ VEN",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_FIRST_HALF",
+        "description": "First Half",
         "completed": false
       },
       "venue": "Chase Stadium",
