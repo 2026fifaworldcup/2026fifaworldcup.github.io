@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T00:19:02+00:00",
+  "updatedAt": "2026-06-07T00:34:57+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1341,16 +1341,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Egypt at Brazil",
       "shortName": "EGY @ BRA",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Huntington Bank Field",
       "home": {
         "code": "BRA",
         "name": "Brazil",
         "score": 2,
-        "winner": false
+        "winner": true
       },
       "away": {
         "code": "EGY",
@@ -1393,8 +1393,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Honduras at Argentina",
       "shortName": "HON @ ARG",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_FIRST_HALF",
+        "description": "First Half",
         "completed": false
       },
       "venue": "Kyle Field",
