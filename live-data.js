@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T21:14:18+00:00",
+  "updatedAt": "2026-06-07T21:31:09+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1471,9 +1471,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Norway at Morocco",
       "shortName": "NOR @ MAR",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Red Bull Arena",
       "home": {
@@ -1497,8 +1497,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Guatemala at Ecuador",
       "shortName": "GUA @ ECU",
       "status": {
-        "name": "STATUS_FIRST_HALF",
-        "description": "First Half",
+        "name": "STATUS_HALFTIME",
+        "description": "Halftime",
         "completed": false
       },
       "venue": "ScottsMiracle-Gro Field",
