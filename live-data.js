@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T01:20:20+00:00",
+  "updatedAt": "2026-06-07T01:35:28+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1393,8 +1393,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Honduras at Argentina",
       "shortName": "HON @ ARG",
       "status": {
-        "name": "STATUS_HALFTIME",
-        "description": "Halftime",
+        "name": "STATUS_SECOND_HALF",
+        "description": "Second Half",
         "completed": false
       },
       "venue": "Kyle Field",
