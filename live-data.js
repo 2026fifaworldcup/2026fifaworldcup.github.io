@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T01:50:36+00:00",
+  "updatedAt": "2026-06-07T02:20:48+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1393,16 +1393,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Honduras at Argentina",
       "shortName": "HON @ ARG",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Kyle Field",
       "home": {
         "code": "ARG",
         "name": "Argentina",
         "score": 2,
-        "winner": false
+        "winner": true
       },
       "away": {
         "code": "HON",
@@ -1419,16 +1419,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Aruba at Curaçao",
       "shortName": "ARU @ CUW",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Stadion Ergilio Hato",
       "home": {
         "code": "CUW",
         "name": "Curaçao",
-        "score": 0,
-        "winner": false
+        "score": 4,
+        "winner": true
       },
       "away": {
         "code": "ARU",
