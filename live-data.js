@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T22:01:22+00:00",
+  "updatedAt": "2026-06-07T22:19:02+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1505,7 +1505,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "home": {
         "code": "ECU",
         "name": "Ecuador",
-        "score": 1,
+        "score": 3,
         "winner": false
       },
       "away": {
