@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-08T19:21:03+00:00",
+  "updatedAt": "2026-06-08T19:36:09+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1575,8 +1575,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Northern Ireland at France",
       "shortName": "NIR @ FRA",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_FIRST_HALF",
+        "description": "First Half",
         "completed": false
       },
       "venue": "Decathlon Arena - Stade Pierre-Mauroy",
