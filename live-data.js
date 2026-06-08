@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-07T23:34:29+00:00",
+  "updatedAt": "2026-06-08T00:04:40+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1531,7 +1531,7 @@ window.WORLD_CUP_LIVE_DATA = {
       "home": {
         "code": "COL",
         "name": "Colombia",
-        "score": 0,
+        "score": 1,
         "winner": false
       },
       "away": {
