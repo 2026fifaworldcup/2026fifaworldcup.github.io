@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-08T01:20:54+00:00",
+  "updatedAt": "2026-06-08T14:58:55+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1725,32 +1725,6 @@ window.WORLD_CUP_LIVE_DATA = {
       "source": "ESPN public scoreboard API"
     },
     {
-      "id": "401874117",
-      "kind": "friendly",
-      "date": "2026-06-10T18:00Z",
-      "name": "Algeria at Bolivia",
-      "shortName": "ALG @ BOL",
-      "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
-        "completed": false
-      },
-      "venue": null,
-      "home": {
-        "code": "BOL",
-        "name": "Bolivia",
-        "score": 0,
-        "winner": false
-      },
-      "away": {
-        "code": "ALG",
-        "name": "Algeria",
-        "score": 0,
-        "winner": false
-      },
-      "source": "ESPN public scoreboard API"
-    },
-    {
       "id": "401867372",
       "kind": "friendly",
       "date": "2026-06-10T19:45Z",
@@ -1797,6 +1771,32 @@ window.WORLD_CUP_LIVE_DATA = {
       "away": {
         "code": "CRC",
         "name": "Costa Rica",
+        "score": 0,
+        "winner": false
+      },
+      "source": "ESPN public scoreboard API"
+    },
+    {
+      "id": "401874117",
+      "kind": "friendly",
+      "date": "2026-06-11T00:00Z",
+      "name": "Algeria at Bolivia",
+      "shortName": "ALG @ BOL",
+      "status": {
+        "name": "STATUS_SCHEDULED",
+        "description": "Scheduled",
+        "completed": false
+      },
+      "venue": null,
+      "home": {
+        "code": "BOL",
+        "name": "Bolivia",
+        "score": 0,
+        "winner": false
+      },
+      "away": {
+        "code": "ALG",
+        "name": "Algeria",
         "score": 0,
         "winner": false
       },
