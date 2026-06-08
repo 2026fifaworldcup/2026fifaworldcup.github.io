@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-08T00:19:46+00:00",
+  "updatedAt": "2026-06-08T00:35:37+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1523,8 +1523,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Jordan at Colombia",
       "shortName": "JOR @ COL",
       "status": {
-        "name": "STATUS_HALFTIME",
-        "description": "Halftime",
+        "name": "STATUS_SECOND_HALF",
+        "description": "Second Half",
         "completed": false
       },
       "venue": "Snapdragon Stadium",
