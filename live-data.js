@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-09T04:15:01+00:00",
+  "updatedAt": "2026-06-09T16:34:29+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1627,8 +1627,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Chile at Congo DR",
       "shortName": "CHI @ COD",
       "status": {
-        "name": "STATUS_SCHEDULED",
-        "description": "Scheduled",
+        "name": "STATUS_FIRST_HALF",
+        "description": "First Half",
         "completed": false
       },
       "venue": "Stade de la Source",
