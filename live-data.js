@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-09T02:58:25+00:00",
+  "updatedAt": "2026-06-09T03:13:31+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1601,8 +1601,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Spain at Peru",
       "shortName": "ESP @ PER",
       "status": {
-        "name": "STATUS_FIRST_HALF",
-        "description": "First Half",
+        "name": "STATUS_HALFTIME",
+        "description": "Halftime",
         "completed": false
       },
       "venue": "Estadio Cuauhtémoc",
