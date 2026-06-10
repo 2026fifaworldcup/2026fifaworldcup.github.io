@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-10T03:07:56+00:00",
+  "updatedAt": "2026-06-10T03:26:19+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1679,16 +1679,16 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Iceland at Argentina",
       "shortName": "ISL @ ARG",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "Jordan-Hare Stadium",
       "home": {
         "code": "ARG",
         "name": "Argentina",
-        "score": 2,
-        "winner": false
+        "score": 3,
+        "winner": true
       },
       "away": {
         "code": "ISL",
@@ -1705,9 +1705,9 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Venezuela at Iraq",
       "shortName": "VEN @ IRQ",
       "status": {
-        "name": "STATUS_SECOND_HALF",
-        "description": "Second Half",
-        "completed": false
+        "name": "STATUS_FULL_TIME",
+        "description": "Full Time",
+        "completed": true
       },
       "venue": "SeatGeek Stadium",
       "home": {
@@ -1720,7 +1720,7 @@ window.WORLD_CUP_LIVE_DATA = {
         "code": "VEN",
         "name": "Venezuela",
         "score": 2,
-        "winner": false
+        "winner": true
       },
       "source": "ESPN public scoreboard API"
     },
