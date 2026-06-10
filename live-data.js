@@ -1,5 +1,5 @@
 window.WORLD_CUP_LIVE_DATA = {
-  "updatedAt": "2026-06-10T00:19:53+00:00",
+  "updatedAt": "2026-06-10T00:34:58+00:00",
   "source": {
     "name": "ESPN public scoreboard API",
     "worldCupUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=250",
@@ -1653,8 +1653,8 @@ window.WORLD_CUP_LIVE_DATA = {
       "name": "Senegal at Saudi Arabia",
       "shortName": "SEN @ KSA",
       "status": {
-        "name": "STATUS_HALFTIME",
-        "description": "Halftime",
+        "name": "STATUS_IN_PROGRESS",
+        "description": "In Progress",
         "completed": false
       },
       "venue": "Toyota Field",
@@ -1683,7 +1683,7 @@ window.WORLD_CUP_LIVE_DATA = {
         "description": "Scheduled",
         "completed": false
       },
-      "venue": "Jordan-Hare Stadium",
+      "venue": null,
       "home": {
         "code": "ARG",
         "name": "Argentina",
